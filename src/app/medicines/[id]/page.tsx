@@ -443,6 +443,53 @@ export default function MedicineDetailPage() {
             </p>
           </div>
         )}
+
+        {/* Same Therapeutic Class Related Alternatives */}
+        {substitutions.sameTherapeuticClass.length > 0 && (
+          <div className="space-y-4 pt-6 border-t border-chalk-300">
+            <div>
+              <h3 className="text-lg font-black text-obsidian-950">
+                Related Formulations in {medicine.therapeuticClass}
+              </h3>
+              <p className="text-xs text-obsidian-800/70">
+                Clinically related alternatives in the same therapeutic class. Doctor consultation is mandatory before switching molecules.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {substitutions.sameTherapeuticClass.slice(0, 6).map((alt) => (
+                <div key={alt.medicine.id} className="bg-white rounded-3xl border border-chalk-300 p-4 flex items-center gap-4 hover:border-saffron-400 transition-all shadow-sm">
+                  <div className="w-28 shrink-0">
+                    <MedicinePackagingImage medicine={alt.medicine} size="sm" />
+                  </div>
+                  <div className="min-w-0 flex-1 space-y-1">
+                    <span className="text-[9px] font-mono font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">
+                      {alt.medicine.therapeuticClass}
+                    </span>
+                    <h4 className="font-black text-sm text-obsidian-950 truncate">
+                      <Link href={`/medicines/${alt.medicine.id}`} className="hover:text-saffron-700">
+                        {alt.medicine.brandName}
+                      </Link>
+                    </h4>
+                    <p className="text-xs text-obsidian-800/80 font-mono truncate">
+                      {alt.medicine.saltComposition}
+                    </p>
+                    <div className="flex items-center justify-between pt-1">
+                      <span className="text-xs font-black text-obsidian-950">
+                        ₹{alt.medicine.pricePerUnit.toFixed(2)} <span className="text-[10px] font-normal text-slate-500">/ {alt.medicine.unitType}</span>
+                      </span>
+                      <Link
+                        href={`/medicines/${alt.medicine.id}`}
+                        className="text-[11px] font-bold text-saffron-700 hover:underline"
+                      >
+                        View &rarr;
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
     </div>
   );

@@ -150,17 +150,29 @@ export default function HomePage() {
                         key={res.medicine.id}
                         href={`/medicines/${res.medicine.id}`}
                         onClick={() => setIsSearchFocused(false)}
-                        className="flex items-center justify-between p-2.5 rounded-xl hover:bg-chalk-100 transition-colors"
+                        className="flex items-center justify-between gap-3 p-2.5 rounded-xl hover:bg-chalk-100 transition-colors"
                       >
-                        <div>
-                          <span className="font-bold text-xs text-obsidian-950 block">
-                            {res.medicine.brandName}
-                          </span>
-                          <span className="text-[11px] text-obsidian-800/70">
-                            {res.medicine.saltComposition} • {res.medicine.dosageForm}
-                          </span>
+                        <div className="flex items-center gap-3 min-w-0">
+                          {/* Miniature Packaging Image */}
+                          <div className="w-12 h-9 rounded-lg bg-slate-950 p-0.5 border border-slate-800 shrink-0 overflow-hidden flex items-center justify-center">
+                            <img
+                              src={res.medicine.imageUrl || `/medicines/${res.medicine.id}.svg`}
+                              alt={res.medicine.brandName}
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+
+                          <div className="min-w-0">
+                            <span className="font-bold text-xs text-obsidian-950 block truncate">
+                              {res.medicine.brandName}
+                            </span>
+                            <span className="text-[11px] text-obsidian-800/70 truncate block">
+                              {res.medicine.saltComposition} • {res.medicine.dosageForm}
+                            </span>
+                          </div>
                         </div>
-                        <div className="text-right">
+
+                        <div className="text-right shrink-0">
                           <span className="text-xs font-bold text-obsidian-950 block">
                             ₹{res.medicine.pricePerUnit.toFixed(2)} / {res.medicine.unitType}
                           </span>

@@ -26,48 +26,48 @@ export function MedicinePackagingImage({
   const isScheduleRedLine = medicine.prescriptionCategory === "Schedule H" || medicine.prescriptionCategory === "Schedule H1";
 
   const sizeClasses = {
-    sm: "h-24 sm:h-28",
-    md: "h-36 sm:h-44",
-    lg: "h-52 sm:h-64",
-    xl: "h-64 sm:h-80"
+    sm: "aspect-[16/10] w-full min-h-[140px]",
+    md: "aspect-[16/10] w-full min-h-[180px]",
+    lg: "aspect-[16/10] w-full min-h-[240px]",
+    xl: "aspect-[16/10] w-full min-h-[290px]"
   }[size];
 
   return (
     <>
       <div
-        className={`group relative overflow-hidden rounded-2xl bg-obsidian-950/5 border border-chalk-300 flex items-center justify-center transition-all ${sizeClasses} ${className}`}
+        className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-950 to-black border border-slate-800 shadow-md flex items-center justify-center transition-all ${sizeClasses} ${className}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* Subtle Ambient Radial Glow */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
         {/* Real Packaging SVG Image or Dynamic Blister Fallback */}
         {hasError ? (
-          <div className="w-full h-full flex flex-col justify-between p-3 bg-gradient-to-br from-slate-200 via-slate-100 to-slate-300 text-obsidian-950 select-none">
+          <div className="w-full h-full flex flex-col justify-between p-3.5 bg-gradient-to-br from-slate-800 via-slate-900 to-black text-white select-none">
             <div className="flex justify-between items-start">
-              <span className="text-[11px] font-black uppercase text-obsidian-900 tracking-wider truncate max-w-[140px]">
+              <span className="text-[11px] font-black uppercase text-white tracking-wider truncate max-w-[140px]">
                 {medicine.brandName}
               </span>
-              <span className="text-[9px] font-mono text-slate-600 bg-white/70 px-1.5 py-0.5 rounded font-bold">
+              <span className="text-[9px] font-mono text-slate-300 bg-white/10 px-1.5 py-0.5 rounded font-bold border border-white/20">
                 {medicine.strength}
               </span>
             </div>
-            <div className="grid grid-cols-4 gap-1.5 py-1">
+            <div className="grid grid-cols-4 gap-2 py-2">
               {[...Array(4)].map((_, i) => (
-                <div key={i} className="h-6 rounded-full bg-gradient-to-b from-white via-slate-100 to-slate-300 shadow-inner border border-slate-300/80" />
+                <div key={i} className="h-8 rounded-full bg-gradient-to-b from-white via-slate-200 to-slate-400 shadow-lg border border-slate-300/80" />
               ))}
             </div>
-            <div className="flex justify-between items-center text-[8.5px] font-mono text-slate-700 border-t border-slate-300/60 pt-1">
-              <span className="truncate max-w-[110px]">{medicine.manufacturer.name}</span>
-              <span className="font-bold text-obsidian-950">₹{medicine.mrp.toFixed(2)}</span>
+            <div className="flex justify-between items-center text-[8.5px] font-mono text-slate-400 border-t border-slate-800 pt-1.5">
+              <span className="truncate max-w-[120px]">{medicine.manufacturer.name}</span>
+              <span className="font-bold text-emerald-400">₹{medicine.mrp.toFixed(2)}</span>
             </div>
           </div>
         ) : (
           <img
             src={imageSrc}
             alt={`Packaging photograph of ${medicine.brandName} (${medicine.saltComposition})`}
-            className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-300"
+            className="w-full h-full object-contain p-2 group-hover:scale-[1.03] transition-transform duration-300 drop-shadow-xl"
             loading="lazy"
             onError={() => setHasError(true)}
           />
