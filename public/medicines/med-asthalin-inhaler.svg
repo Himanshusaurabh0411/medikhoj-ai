@@ -1,50 +1,122 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" style="background:#F8F6F2; border-radius:18px;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" style="background:#090E17; border-radius:18px;">
   <defs>
-    <linearGradient id="jar-body" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#312E81" />
-      <stop offset="30%" stop-color="#4338CA" />
-      <stop offset="50%" stop-color="#6366F1" />
-      <stop offset="70%" stop-color="#4338CA" />
-      <stop offset="100%" stop-color="#1E1B4B" />
+    <!-- Actuator Plastic Gradient -->
+    <linearGradient id="actuator-body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="25%" stop-color="#0284C7" />
+      <stop offset="70%" stop-color="#0369A1" />
+      <stop offset="100%" stop-color="#075985" />
     </linearGradient>
-    <linearGradient id="cap-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#D1D5DB" />
-      <stop offset="50%" stop-color="#FFFFFF" />
-      <stop offset="100%" stop-color="#9CA3AF" />
+
+    <!-- Aluminum Canister Metallic Shimmer -->
+    <linearGradient id="canister-alu" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#94A3B8" />
+      <stop offset="30%" stop-color="#F1F5F9" />
+      <stop offset="60%" stop-color="#CBD5E1" />
+      <stop offset="85%" stop-color="#E2E8F0" />
+      <stop offset="100%" stop-color="#64748B" />
     </linearGradient>
-    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
-      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#090E17" flood-opacity="0.25" />
+
+    <!-- Mouthpiece Cap Gradient -->
+    <linearGradient id="cap-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0EA5E9" />
+      <stop offset="100%" stop-color="#0369A1" />
+    </linearGradient>
+
+    <filter id="inhaler-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="8" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
     </filter>
   </defs>
 
-  <ellipse cx="300" cy="340" rx="140" ry="20" fill="#090E17" opacity="0.18" />
+  <!-- Studio Stage Background Lighting -->
+  <radialGradient id="stage-spot" cx="35%" cy="45%" r="65%">
+    <stop offset="0%" stop-color="#1E293B" stop-opacity="0.9" />
+    <stop offset="100%" stop-color="#090E17" stop-opacity="1" />
+  </radialGradient>
+  <rect width="600" height="380" fill="url(#stage-spot)" />
 
-  <g filter="url(#shadow)">
-    <rect x="200" y="90" width="200" height="230" rx="30" fill="url(#jar-body)" />
-    <rect x="230" y="45" width="140" height="50" rx="12" fill="url(#cap-grad)" />
+  <!-- Ambient Ground Shadow -->
+  <ellipse cx="220" cy="345" rx="140" ry="16" fill="#000000" opacity="0.6" />
 
-    <rect x="205" y="115" width="190" height="175" rx="10" fill="#FFFDF9" stroke="#E2DCD5" stroke-width="1.5" />
-    <rect x="205" y="115" width="190" height="32" rx="10" fill="#0D3B66" />
-    <text x="300" y="136" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" letter-spacing="1">
-      PHARMACEUTICAL IP
-    </text>
+  <!-- 3D Pressurized Metered-Dose Inhaler (pMDI) -->
+  <g filter="url(#inhaler-shadow)">
+    <!-- 1. Metallic Aerosol Canister Top -->
+    <rect x="175" y="45" width="85" height="70" rx="8" fill="url(#canister-alu)" stroke="#475569" stroke-width="1.2" />
+    <ellipse cx="217.5" cy="45" rx="42.5" ry="10" fill="#E2E8F0" stroke="#64748B" stroke-width="1" />
+    
+    <!-- Dose Counter Notch on Canister Rim -->
+    <rect x="202" y="60" width="32" height="18" rx="4" fill="#0F172A" />
+    <text x="218" y="73" text-anchor="middle" font-family="monospace" font-size="10" font-weight="900" fill="#38BDF8">200</text>
+    <text x="218" y="92" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" font-weight="800" fill="#94A3B8" letter-spacing="1">CFC FREE</text>
 
-    <text x="300" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="900" fill="#090E17">
+    <!-- 2. L-Shaped Ergonomic Medical Plastic Actuator Body -->
+    <!-- Vertical Column -->
+    <path d="M 160 95 L 275 95 L 275 250 Q 275 295 240 310 L 130 310 Q 110 310 110 290 L 110 250 Q 110 230 160 230 Z" fill="url(#actuator-body)" stroke="#0284C7" stroke-width="1.5" />
+
+    <!-- Specular Highlight Curve on Plastic -->
+    <path d="M 170 105 L 178 105 L 178 240 Q 178 280 205 298 L 195 298 Q 170 280 170 240 Z" fill="#FFFFFF" opacity="0.25" />
+
+    <!-- Mouthpiece Extension (Horizontal Spout) -->
+    <path d="M 110 245 L 85 248 Q 70 252 70 270 Q 70 288 85 292 L 110 295 Z" fill="#0284C7" stroke="#0369A1" stroke-width="1" />
+    
+    <!-- Mouthpiece Dust Cap Attached with Strap -->
+    <path d="M 68 250 L 52 254 Q 40 258 40 270 Q 40 282 52 286 L 68 290 Z" fill="url(#cap-blue)" stroke="#38BDF8" stroke-width="1.5" />
+    <ellipse cx="40" cy="270" rx="4" ry="16" fill="#0369A1" />
+    <!-- Flexible retaining loop strap -->
+    <path d="M 60 290 Q 75 325 125 315" fill="none" stroke="#0284C7" stroke-width="4" stroke-linecap="round" />
+
+    <!-- Authentic Brand Label on Inhaler Body -->
+    <rect x="180" y="125" width="80" height="95" rx="6" fill="#FFFFFF" />
+    <rect x="180" y="125" width="80" height="20" rx="6" fill="#0284C7" />
+    <text x="220" y="139" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="900" fill="#FFFFFF">CIPLA</text>
+    
+    <text x="220" y="162" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#075985" letter-spacing="0.5">ASTHALIN</text>
+    <text x="220" y="174" text-anchor="middle" font-family="'Noto Sans Devanagari', system-ui" font-size="8.5" font-weight="700" fill="#0284C7">अस्थालिन इनहेलर</text>
+    <text x="220" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" font-weight="700" fill="#475569">Salbutamol 100mcg</text>
+    <text x="220" y="202" text-anchor="middle" font-family="system-ui, sans-serif" font-size="6.5" font-weight="800" fill="#BE123C">SCHEDULE H DRUG</text>
+    <text x="220" y="214" text-anchor="middle" font-family="monospace" font-size="6.5" font-weight="700" fill="#64748B">200 PUFFS • ₹148.00</text>
+  </g>
+
+  <!-- Right Information Display Panel -->
+  <g transform="translate(320, 60)">
+    <!-- Verification Badge -->
+    <rect x="0" y="0" width="130" height="22" rx="6" fill="#0369A1" />
+    <text x="65" y="14" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8.5" font-weight="900" fill="#FFFFFF" letter-spacing="0.5">METERED DOSE INHALER</text>
+
+    <text x="0" y="50" font-family="system-ui, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" letter-spacing="0.5">
       ASTHALIN INHALER
     </text>
-    <text x="300" y="188" text-anchor="middle" font-family="'Noto Sans Devanagari', system-ui" font-size="11" font-weight="700" fill="#0D3B66">
-      अस्थालिन इनहेलर
+    <text x="0" y="70" font-family="'Noto Sans Devanagari', system-ui" font-size="13" font-weight="700" fill="#38BDF8">
+      अस्थालिन इनहेलर (सालव्युटामोल)
     </text>
 
-    <text x="300" y="212" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">
-      Salbutamol (100mcg per actuation)
+    <!-- Salt & Clinical Delivery -->
+    <text x="0" y="98" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#E2E8F0">
+      Salbutamol Inhalation Aerosol B.P. 100 mcg
     </text>
-    <text x="300" y="228" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#0F172A">
-      200 Puffs • ₹148.00
+    <text x="0" y="115" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#94A3B8">
+      Each actuation delivers Salbutamol 100 mcg (CFC-Free)
     </text>
 
-    <text x="300" y="270" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748B">
-      Cipla Ltd
+    <!-- Schedule H Statutory Red Line Warning Box -->
+    <rect x="0" y="132" width="250" height="42" rx="6" fill="#450A0A" stroke="#DC2626" stroke-width="1.2" />
+    <text x="10" y="148" font-family="system-ui, sans-serif" font-size="8.5" font-weight="900" fill="#EF4444" letter-spacing="0.5">
+      SCHEDULE H PRESCRIPTION DRUG - CAUTION
+    </text>
+    <text x="10" y="162" font-family="system-ui, sans-serif" font-size="7.5" font-weight="600" fill="#FCA5A5">
+      To be sold by retail on the prescription of an RMP only.
+    </text>
+
+    <!-- Packaging & Regulatory Batch Card -->
+    <rect x="0" y="190" width="250" height="70" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1" />
+    <text x="12" y="212" font-family="monospace" font-size="9.5" font-weight="700" fill="#E2E8F0">
+      CANISTER: 200 Actuations (Pressurized)
+    </text>
+    <text x="12" y="230" font-family="monospace" font-size="9.5" font-weight="700" fill="#34D399">
+      MAX RETAIL PRICE: ₹148.00 (Incl. Taxes)
+    </text>
+    <text x="12" y="248" font-family="monospace" font-size="8.5" font-weight="600" fill="#94A3B8">
+      MFG: Cipla Ltd • GTIN: 08901117009899
     </text>
   </g>
 </svg>

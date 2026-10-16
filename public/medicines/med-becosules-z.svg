@@ -1,118 +1,346 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" style="background:#0F172A; border-radius:18px;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" style="background:#090E17; border-radius:18px;">
   <defs>
-    <linearGradient id="blister-alu" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#E2E8F0" />
-      <stop offset="25%" stop-color="#CBD5E1" />
-      <stop offset="50%" stop-color="#F1F5F9" />
-      <stop offset="75%" stop-color="#94A3B8" />
-      <stop offset="100%" stop-color="#CBD5E1" />
-    </linearGradient>
+    <linearGradient id="foil-metallic" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#78350F" />
+        <stop offset="25%" stop-color="#D97706" />
+        <stop offset="50%" stop-color="#FBBF24" />
+        <stop offset="75%" stop-color="#B45309" />
+        <stop offset="100%" stop-color="#78350F" />
+      </linearGradient>
 
+    <!-- Micro-embossed Aluminum Texture Grid -->
+    <pattern id="foil-texture" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="5" y2="0" stroke="#94A3B8" stroke-width="0.3" opacity="0.35" />
+      <line x1="0" y1="0" x2="0" y2="5" stroke="#94A3B8" stroke-width="0.3" opacity="0.35" />
+    </pattern>
+
+    <!-- 3D Cavity Shadow -->
+    <radialGradient id="pocket-cavity" cx="50%" cy="50%" r="50%">
+      <stop offset="70%" stop-color="transparent" />
+      <stop offset="90%" stop-color="#475569" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#1E293B" stop-opacity="0.75" />
+    </radialGradient>
+
+    <!-- Beveled Pocket Rim -->
     <linearGradient id="pocket-rim" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
-      <stop offset="50%" stop-color="#64748B" stop-opacity="0.4" />
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="50%" stop-color="#94A3B8" stop-opacity="0.4" />
       <stop offset="100%" stop-color="#0F172A" stop-opacity="0.8" />
     </linearGradient>
 
-    <linearGradient id="capsule-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0D3B66" />
-      <stop offset="50%" stop-color="#0D3B66" />
-      <stop offset="50%" stop-color="#FFFFFF" />
-      <stop offset="100%" stop-color="#FFFFFF" />
-    </linearGradient>
-
-    <filter id="pocket-shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.35" />
-    </filter>
-
-    <filter id="blister-shadow" x="-5%" y="-5%" width="115%" height="115%">
-      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity="0.5" />
+    <filter id="strip-shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.55" />
     </filter>
   </defs>
 
+  <!-- Ambient Light -->
+  <radialGradient id="ambient" cx="50%" cy="45%" r="70%">
+    <stop offset="0%" stop-color="#1E293B" stop-opacity="0.85" />
+    <stop offset="100%" stop-color="#090E17" stop-opacity="1" />
+  </radialGradient>
+  <rect width="600" height="380" fill="url(#ambient)" />
+
   <!-- Ground Shadow -->
-  <ellipse cx="300" cy="350" rx="270" ry="18" fill="#000000" opacity="0.4" />
+  <ellipse cx="300" cy="350" rx="270" ry="18" fill="#000000" opacity="0.6" />
 
-  <!-- Main Aluminum Blister Card -->
-  <g filter="url(#blister-shadow)">
-    <rect x="25" y="25" width="550" height="310" rx="16" fill="url(#blister-alu)" stroke="#94A3B8" stroke-width="1.5" />
+  <!-- 3D Realistic Pharmaceutical Blister Strip -->
+  <g filter="url(#strip-shadow)">
+    <!-- Base Aluminum Foil Card -->
+    <rect x="25" y="25" width="550" height="315" rx="18" fill="url(#foil-metallic)" stroke="#64748B" stroke-width="1.2" />
+    <rect x="25" y="25" width="550" height="315" rx="18" fill="url(#foil-texture)" />
 
-    <!-- Top Metallic Header / Brand Banner -->
-    <rect x="25" y="25" width="550" height="58" rx="16" fill="#0D3B66" />
-    <!-- Flatten bottom corners of header -->
-    <rect x="25" y="55" width="550" height="28" fill="#0D3B66" />
+    <!-- Top Brand Header Banner -->
+    <rect x="25" y="25" width="550" height="66" rx="18" fill="#78350F" />
+    <rect x="25" y="55" width="550" height="36" fill="#78350F" />
 
-    <!-- Brand Header Text -->
-    <text x="45" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="900" fill="#FFFFFF" letter-spacing="0.5">
-      BECOSULES Z
+    <!-- Brand Header Typography -->
+    <g transform="translate(45, 42)">
+      <text x="0" y="20" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" letter-spacing="0.5">
+        BECOSULES Z
+      </text>
+      <text x="0" y="38" font-family="'Noto Sans Devanagari', system-ui" font-size="11" font-weight="700" fill="#FDE047">
+        बिकोसूल्स ज़ेड
+      </text>
+      
+      <!-- Tagline / Salt -->
+      <text x="180" y="26" font-family="system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" opacity="0.95">
+        B-COMPLEX FORTE WITH VITAMIN C & ZINC
+      </text>
+    </g>
+
+    <!-- Manufacturer / Pack badge on top right -->
+    <rect x="420" y="38" width="135" height="28" rx="6" fill="#000000" opacity="0.35" />
+    <text x="487.5" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF">
+      PFIZER • 20 Capsules
     </text>
-    <text x="45" y="74" font-family="'Noto Sans Devanagari', system-ui" font-size="12" font-weight="700" fill="#E2E8F0">
-      बेकोस्यूल्स ज़ेड
-    </text>
 
-    <!-- Pack size badge -->
-    <rect x="440" y="40" width="120" height="26" rx="6" fill="#000000" opacity="0.3" />
-    <text x="500" y="57" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">
-      20 Capsules
-    </text>
-
+    <!-- Schedule H / H1 Statutory Lal Lakir (Red Warning Stripe) -->
+    
+    <line x1="25" y1="91" x2="575" y2="91" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3,3" opacity="0.6" />
     
 
-    <!-- 6 Pill Blister Relief Pockets -->
-    <!-- Col 1 -->
-    <g filter="url(#pocket-shadow)">
-      <rect x="50" y="105" width="55" height="42" rx="18" fill="url(#capsule-grad)" stroke="url(#pocket-rim)" stroke-width="2.5" />
-      <rect x="50" y="170" width="55" height="42" rx="18" fill="url(#capsule-grad)" stroke="url(#pocket-rim)" stroke-width="2.5" />
-      <rect x="50" y="235" width="55" height="42" rx="18" fill="url(#capsule-grad)" stroke="url(#pocket-rim)" stroke-width="2.5" />
+    <!-- Authentic Perforation Lines between Blister Pockets -->
+    <line x1="104" y1="106" x2="104" y2="280" stroke="#94A3B8" stroke-width="0.9" stroke-dasharray="2,3" opacity="0.7" /><line x1="153" y1="106" x2="153" y2="280" stroke="#94A3B8" stroke-width="0.9" stroke-dasharray="2,3" opacity="0.7" /><line x1="202" y1="106" x2="202" y2="280" stroke="#94A3B8" stroke-width="0.9" stroke-dasharray="2,3" opacity="0.7" /><line x1="251" y1="106" x2="251" y2="280" stroke="#94A3B8" stroke-width="0.9" stroke-dasharray="2,3" opacity="0.7" /><line x1="300" y1="106" x2="300" y2="280" stroke="#94A3B8" stroke-width="0.9" stroke-dasharray="2,3" opacity="0.7" /><line x1="349" y1="106" x2="349" y2="280" stroke="#94A3B8" stroke-width="0.9" stroke-dasharray="2,3" opacity="0.7" /><line x1="398" y1="106" x2="398" y2="280" stroke="#94A3B8" stroke-width="0.9" stroke-dasharray="2,3" opacity="0.7" /><line x1="447" y1="106" x2="447" y2="280" stroke="#94A3B8" stroke-width="0.9" stroke-dasharray="2,3" opacity="0.7" /><line x1="496" y1="106" x2="496" y2="280" stroke="#94A3B8" stroke-width="0.9" stroke-dasharray="2,3" opacity="0.7" />
+
+    <!-- Blister Pockets Relief Grid -->
+    <g transform="translate(55, 108)">
+      
+          <g transform="translate(24.5, 40)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(73.5, 40)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(122.5, 40)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(171.5, 40)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(220.5, 40)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(269.5, 40)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(318.5, 40)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(367.5, 40)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(416.5, 40)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(465.5, 40)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(24.5, 120)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(73.5, 120)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(122.5, 120)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(171.5, 120)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(220.5, 120)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(269.5, 120)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(318.5, 120)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(367.5, 120)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(416.5, 120)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(465.5, 120)">
+            <!-- Cavity recess -->
+            <rect x="-16.3325" y="-14" width="32.665" height="28" rx="14" fill="url(#pocket-cavity)" />
+            <!-- Capsule Left Cap -->
+            <path d="M -14.3325 0 Q -14.3325 -12 0 -12 L 0 12 Q -14.3325 12 -14.3325 0 Z" fill="#451A03" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Capsule Right Body -->
+            <path d="M 0 -12 Q 14.3325 -12 14.3325 0 Q 14.3325 12 0 12 Z" fill="#EAB308" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Specular shine on capsule -->
+            <ellipse cx="0" cy="-6" rx="9.555" ry="2.5" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
     </g>
 
-    <!-- Col 2 -->
-    <g filter="url(#pocket-shadow)">
-      <rect x="120" y="105" width="55" height="42" rx="18" fill="url(#capsule-grad)" stroke="url(#pocket-rim)" stroke-width="2.5" />
-      <rect x="120" y="170" width="55" height="42" rx="18" fill="url(#capsule-grad)" stroke="url(#pocket-rim)" stroke-width="2.5" />
-      <rect x="120" y="235" width="55" height="42" rx="18" fill="url(#capsule-grad)" stroke="url(#pocket-rim)" stroke-width="2.5" />
-    </g>
-
-    <!-- Printed Information & Regulatory Data -->
-    <g transform="translate(220, 105)">
-      <!-- Salt Composition -->
-      <text x="0" y="15" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#0F172A">
-        B-Complex + Vitamin C + Zinc
+    <!-- Bottom Batch & Expiry Imprint Bar -->
+    <g transform="translate(45, 292)">
+      <rect x="0" y="0" width="510" height="38" rx="6" fill="#F8FAFC" opacity="0.92" stroke="#CBD5E1" stroke-width="1" />
+      <text x="15" y="16" font-family="monospace" font-size="9.5" font-weight="700" fill="#0F172A">
+        B.No. BECO25  •  MFD. 01/2025
       </text>
-      <text x="0" y="32" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#334155">
-        Each capsule contains:
-      </text>
-      <text x="0" y="48" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1E293B">
-        Thiamine (10mg) + Riboflavin (10mg) + Pyridoxine...
-      </text>
-
-      <!-- Dosage & Storage -->
-      <text x="0" y="75" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">
-        Dosage: As directed by the Physician.
-      </text>
-      <text x="0" y="90" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">
-        Store below 25°C. Protect from moisture & light.
-      </text>
-      <text x="0" y="105" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">
-        Keep all medicines out of reach of children.
-      </text>
-
-      <!-- Manufacturer line -->
-      <line x1="0" y1="120" x2="330" y2="120" stroke="#94A3B8" stroke-width="1" stroke-dasharray="2 2" />
-      <text x="0" y="136" font-family="system-ui, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A">
-        Mfg. by: Pfizer Ltd
-      </text>
-
-      <!-- Batch & Expiry Imprint Box -->
-      <rect x="0" y="150" width="330" height="65" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
-      <text x="15" y="172" font-family="monospace" font-size="10" font-weight="700" fill="#1E293B">
-        B.No. MED24457  •  MFD. 01/2025
-      </text>
-      <text x="15" y="190" font-family="monospace" font-size="10" font-weight="700" fill="#DC2626">
+      <text x="15" y="30" font-family="monospace" font-size="9.5" font-weight="800" fill="#DC2626">
         EXP. 12/2027  •  M.R.P. ₹52.00 (INCL. ALL TAXES)
       </text>
-      <text x="15" y="206" font-family="monospace" font-size="9" font-weight="600" fill="#64748B">
-        GTIN: 08901058001013  •  OTC
+
+      <text x="320" y="16" font-family="monospace" font-size="9" font-weight="600" fill="#475569">
+        GTIN: 08901058001013
+      </text>
+      <text x="320" y="30" font-family="system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#0F172A">
+        Mfg: Pfizer Ltd
       </text>
     </g>
   </g>

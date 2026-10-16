@@ -1,50 +1,171 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" style="background:#F8F6F2; border-radius:18px;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" style="background:#081018; border-radius:18px;">
   <defs>
+    <!-- Dark Amber/Maroon Jar Body Gradient -->
     <linearGradient id="jar-body" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#312E81" />
-      <stop offset="30%" stop-color="#4338CA" />
-      <stop offset="50%" stop-color="#6366F1" />
-      <stop offset="70%" stop-color="#4338CA" />
-      <stop offset="100%" stop-color="#1E1B4B" />
+      <stop offset="0%" stop-color="#451A03" />
+      <stop offset="25%" stop-color="#78350F" />
+      <stop offset="65%" stop-color="#9A3412" />
+      <stop offset="90%" stop-color="#78350F" />
+      <stop offset="100%" stop-color="#451A03" />
     </linearGradient>
-    <linearGradient id="cap-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#D1D5DB" />
-      <stop offset="50%" stop-color="#FFFFFF" />
-      <stop offset="100%" stop-color="#9CA3AF" />
+
+    <!-- Metallic Gold Cap Gradient -->
+    <linearGradient id="gold-cap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#92400E" />
+      <stop offset="25%" stop-color="#FBBF24" />
+      <stop offset="60%" stop-color="#FDE68A" />
+      <stop offset="85%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#78350F" />
     </linearGradient>
-    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
-      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#090E17" flood-opacity="0.25" />
+
+    <filter id="jar-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="6" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
     </filter>
   </defs>
 
-  <ellipse cx="300" cy="340" rx="140" ry="20" fill="#090E17" opacity="0.18" />
+  <!-- Ambient Light -->
+  <radialGradient id="stage-spot" cx="30%" cy="50%" r="65%">
+    <stop offset="0%" stop-color="#78350F" stop-opacity="0.4" />
+    <stop offset="100%" stop-color="#081018" stop-opacity="1" />
+  </radialGradient>
+  <rect width="600" height="380" fill="url(#stage-spot)" />
 
-  <g filter="url(#shadow)">
-    <rect x="200" y="90" width="200" height="230" rx="30" fill="#78350F" />
-    <rect x="230" y="45" width="140" height="50" rx="12" fill="url(#cap-grad)" />
+  <!-- Ground Shadow -->
+  <ellipse cx="195" cy="345" rx="125" ry="16" fill="#000000" opacity="0.6" />
 
-    <rect x="205" y="115" width="190" height="175" rx="10" fill="#FFFDF9" stroke="#E2DCD5" stroke-width="1.5" />
-    <rect x="205" y="115" width="190" height="32" rx="10" fill="#B45309" />
-    <text x="300" y="136" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" letter-spacing="1">
-      AYURVEDIC RASAYANA
+  <!-- 3D Wide Mouth Amber Glass / PET Jar -->
+  <g filter="url(#jar-shadow)">
+    <!-- 1. Metallic Gold Screw Cap -->
+    <rect x="130" y="45" width="130" height="45" rx="10" fill="url(#gold-cap)" stroke="#B45309" stroke-width="1.2" />
+    
+      <line x1="138" y1="48" x2="138" y2="86" stroke="#78350F" stroke-width="1.8" opacity="0.4" />
+      <line x1="139" y1="48" x2="139" y2="86" stroke="#FEF3C7" stroke-width="1" opacity="0.5" />
+    
+      <line x1="147" y1="48" x2="147" y2="86" stroke="#78350F" stroke-width="1.8" opacity="0.4" />
+      <line x1="148" y1="48" x2="148" y2="86" stroke="#FEF3C7" stroke-width="1" opacity="0.5" />
+    
+      <line x1="156" y1="48" x2="156" y2="86" stroke="#78350F" stroke-width="1.8" opacity="0.4" />
+      <line x1="157" y1="48" x2="157" y2="86" stroke="#FEF3C7" stroke-width="1" opacity="0.5" />
+    
+      <line x1="165" y1="48" x2="165" y2="86" stroke="#78350F" stroke-width="1.8" opacity="0.4" />
+      <line x1="166" y1="48" x2="166" y2="86" stroke="#FEF3C7" stroke-width="1" opacity="0.5" />
+    
+      <line x1="174" y1="48" x2="174" y2="86" stroke="#78350F" stroke-width="1.8" opacity="0.4" />
+      <line x1="175" y1="48" x2="175" y2="86" stroke="#FEF3C7" stroke-width="1" opacity="0.5" />
+    
+      <line x1="183" y1="48" x2="183" y2="86" stroke="#78350F" stroke-width="1.8" opacity="0.4" />
+      <line x1="184" y1="48" x2="184" y2="86" stroke="#FEF3C7" stroke-width="1" opacity="0.5" />
+    
+      <line x1="192" y1="48" x2="192" y2="86" stroke="#78350F" stroke-width="1.8" opacity="0.4" />
+      <line x1="193" y1="48" x2="193" y2="86" stroke="#FEF3C7" stroke-width="1" opacity="0.5" />
+    
+      <line x1="201" y1="48" x2="201" y2="86" stroke="#78350F" stroke-width="1.8" opacity="0.4" />
+      <line x1="202" y1="48" x2="202" y2="86" stroke="#FEF3C7" stroke-width="1" opacity="0.5" />
+    
+      <line x1="210" y1="48" x2="210" y2="86" stroke="#78350F" stroke-width="1.8" opacity="0.4" />
+      <line x1="211" y1="48" x2="211" y2="86" stroke="#FEF3C7" stroke-width="1" opacity="0.5" />
+    
+      <line x1="219" y1="48" x2="219" y2="86" stroke="#78350F" stroke-width="1.8" opacity="0.4" />
+      <line x1="220" y1="48" x2="220" y2="86" stroke="#FEF3C7" stroke-width="1" opacity="0.5" />
+    
+      <line x1="228" y1="48" x2="228" y2="86" stroke="#78350F" stroke-width="1.8" opacity="0.4" />
+      <line x1="229" y1="48" x2="229" y2="86" stroke="#FEF3C7" stroke-width="1" opacity="0.5" />
+    
+      <line x1="237" y1="48" x2="237" y2="86" stroke="#78350F" stroke-width="1.8" opacity="0.4" />
+      <line x1="238" y1="48" x2="238" y2="86" stroke="#FEF3C7" stroke-width="1" opacity="0.5" />
+    
+      <line x1="246" y1="48" x2="246" y2="86" stroke="#78350F" stroke-width="1.8" opacity="0.4" />
+      <line x1="247" y1="48" x2="247" y2="86" stroke="#FEF3C7" stroke-width="1" opacity="0.5" />
+    
+
+    <!-- 2. Jar Neck Ring -->
+    <rect x="135" y="90" width="120" height="12" rx="4" fill="#78350F" stroke="#451A03" stroke-width="1" />
+
+    <!-- 3. Wide Jar Body -->
+    <rect x="105" y="102" width="180" height="230" rx="26" fill="url(#jar-body)" stroke="#451A03" stroke-width="1.5" />
+    
+    <!-- Specular Highlight Column -->
+    <rect x="130" y="110" width="22" height="210" rx="10" fill="#FFFFFF" opacity="0.25" />
+
+    <!-- 4. Front Label Graphic -->
+    <rect x="114" y="120" width="162" height="195" rx="12" fill="#FFFDF8" stroke="#E2DCD5" stroke-width="1" />
+    
+    <!-- Red Dabur Header Ribbon -->
+    <rect x="114" y="120" width="162" height="38" rx="12" fill="#BE123C" />
+    <rect x="114" y="145" width="162" height="13" fill="#BE123C" />
+    <text x="195" y="139" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="900" fill="#FFFFFF" letter-spacing="1">
+      Dabur
     </text>
 
-    <text x="300" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="900" fill="#090E17">
-      DABUR CHYAWANPRASH
+    <!-- Main Medicine Logo -->
+    <text x="195" y="182" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#78350F">
+      CHYAWANPRASH
     </text>
-    <text x="300" y="188" text-anchor="middle" font-family="'Noto Sans Devanagari', system-ui" font-size="11" font-weight="700" fill="#B45309">
+    <text x="195" y="198" text-anchor="middle" font-family="'Noto Sans Devanagari', system-ui" font-size="11" font-weight="700" fill="#BE123C">
       डाबर च्यवनप्राश
     </text>
 
-    <text x="300" y="212" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">
-      Amalaki (Phyllanthus emblica) + Guduch...
-    </text>
-    <text x="300" y="228" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#0F172A">
-      500 Grams • ₹230.00
+    <!-- Immunity Badge -->
+    <rect x="135" y="212" width="120" height="20" rx="6" fill="#FEF3C7" stroke="#FBBF24" stroke-width="1" />
+    <text x="195" y="226" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8.5" font-weight="900" fill="#92400E">
+      2X IMMUNITY • 40+ HERBS
     </text>
 
-    <text x="300" y="270" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748B">
-      Dabur India Ltd
+    <text x="195" y="254" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#334155">
+      Enriched with Fresh Amla &amp; Ghee
+    </text>
+    <text x="195" y="268" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7.5" font-weight="600" fill="#64748B">
+      Authentic Ayurvedic Rasayana Paste
+    </text>
+
+    <!-- Pack weight & MRP footer -->
+    <rect x="114" y="285" width="162" height="30" rx="8" fill="#F8FAFC" />
+    <text x="195" y="298" text-anchor="middle" font-family="monospace" font-size="8.5" font-weight="800" fill="#0F172A">
+      NET: 500 g • MRP ₹230.00
+    </text>
+    <text x="195" y="309" text-anchor="middle" font-family="system-ui, sans-serif" font-size="6.5" font-weight="700" fill="#64748B">
+      DABUR INDIA LIMITED • SHREE BAIDYANATH
+    </text>
+  </g>
+
+  <!-- Right Information Panel -->
+  <g transform="translate(320, 55)">
+    <rect x="0" y="0" width="145" height="22" rx="6" fill="#B45309" />
+    <text x="72.5" y="14" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8.5" font-weight="900" fill="#FFFFFF" letter-spacing="0.5">AYURVEDA RASAYANA</text>
+
+    <text x="0" y="50" font-family="system-ui, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF">
+      Dabur Chyawanprash
+    </text>
+    <text x="0" y="70" font-family="'Noto Sans Devanagari', system-ui" font-size="13" font-weight="700" fill="#FBBF24">
+      डाबर च्यवनप्राश
+    </text>
+
+    <text x="0" y="96" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#E2E8F0">
+      Amalaki (Phyllanthus emblica) + Guduchi (Tinospora cordifolia) + Pippali (Piper longum) + Ashwagandha (Withania somnifera) + Shatavari + 40+ Classical Ayurvedic Botanicals in pure Honey and Ghee base
+    </text>
+    <text x="0" y="113" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#94A3B8">
+      Traditional Ayurvedic restorative jam for respiratory &amp; immune health
+    </text>
+
+    <!-- Key Active Herbs -->
+    <rect x="0" y="132" width="250" height="52" rx="8" fill="#78350F" stroke="#B45309" stroke-width="1" opacity="0.8" />
+    <text x="12" y="152" font-family="system-ui, sans-serif" font-size="8.5" font-weight="900" fill="#FDE68A" letter-spacing="0.5">
+      KEY INGREDIENTS
+    </text>
+    <text x="12" y="170" font-family="system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#F8FAFC">
+      Amla Rasayana • Clinically Tested Immunity 2X Protection
+    </text>
+
+    <!-- Batch & Regulatory Info -->
+    <rect x="0" y="198" width="250" height="70" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1" />
+    <text x="12" y="220" font-family="monospace" font-size="9.5" font-weight="700" fill="#E2E8F0">
+      PACK: Glass Jar of 500 grams
+    </text>
+    <text x="12" y="238" font-family="monospace" font-size="9.5" font-weight="700" fill="#34D399">
+      MAX RETAIL PRICE: ₹230.00 (₹0.46/g)
+    </text>
+    <text x="12" y="256" font-family="monospace" font-size="8.5" font-weight="600" fill="#94A3B8">
+      MFG: Dabur India Ltd • AYUSH LICENSED
     </text>
   </g>
 </svg>

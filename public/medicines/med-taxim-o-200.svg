@@ -1,124 +1,230 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" style="background:#0F172A; border-radius:18px;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" style="background:#090E17; border-radius:18px;">
   <defs>
-    <linearGradient id="blister-alu" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#E2E8F0" />
-      <stop offset="25%" stop-color="#CBD5E1" />
-      <stop offset="50%" stop-color="#F1F5F9" />
-      <stop offset="75%" stop-color="#94A3B8" />
-      <stop offset="100%" stop-color="#CBD5E1" />
-    </linearGradient>
+    <linearGradient id="foil-metallic" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#CBD5E1" />
+        <stop offset="20%" stop-color="#F1F5F9" />
+        <stop offset="40%" stop-color="#E2E8F0" />
+        <stop offset="65%" stop-color="#FFFFFF" />
+        <stop offset="85%" stop-color="#CBD5E1" />
+        <stop offset="100%" stop-color="#94A3B8" />
+      </linearGradient>
 
+    <!-- Micro-embossed Aluminum Texture Grid -->
+    <pattern id="foil-texture" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="5" y2="0" stroke="#94A3B8" stroke-width="0.3" opacity="0.35" />
+      <line x1="0" y1="0" x2="0" y2="5" stroke="#94A3B8" stroke-width="0.3" opacity="0.35" />
+    </pattern>
+
+    <!-- 3D Cavity Shadow -->
+    <radialGradient id="pocket-cavity" cx="50%" cy="50%" r="50%">
+      <stop offset="70%" stop-color="transparent" />
+      <stop offset="90%" stop-color="#475569" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#1E293B" stop-opacity="0.75" />
+    </radialGradient>
+
+    <!-- Beveled Pocket Rim -->
     <linearGradient id="pocket-rim" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
-      <stop offset="50%" stop-color="#64748B" stop-opacity="0.4" />
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="50%" stop-color="#94A3B8" stop-opacity="0.4" />
       <stop offset="100%" stop-color="#0F172A" stop-opacity="0.8" />
     </linearGradient>
 
-    <linearGradient id="capsule-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0D3B66" />
-      <stop offset="50%" stop-color="#0D3B66" />
-      <stop offset="50%" stop-color="#FFFFFF" />
-      <stop offset="100%" stop-color="#FFFFFF" />
-    </linearGradient>
-
-    <filter id="pocket-shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.35" />
-    </filter>
-
-    <filter id="blister-shadow" x="-5%" y="-5%" width="115%" height="115%">
-      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity="0.5" />
+    <filter id="strip-shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.55" />
     </filter>
   </defs>
 
+  <!-- Ambient Light -->
+  <radialGradient id="ambient" cx="50%" cy="45%" r="70%">
+    <stop offset="0%" stop-color="#1E293B" stop-opacity="0.85" />
+    <stop offset="100%" stop-color="#090E17" stop-opacity="1" />
+  </radialGradient>
+  <rect width="600" height="380" fill="url(#ambient)" />
+
   <!-- Ground Shadow -->
-  <ellipse cx="300" cy="350" rx="270" ry="18" fill="#000000" opacity="0.4" />
+  <ellipse cx="300" cy="350" rx="270" ry="18" fill="#000000" opacity="0.6" />
 
-  <!-- Main Aluminum Blister Card -->
-  <g filter="url(#blister-shadow)">
-    <rect x="25" y="25" width="550" height="310" rx="16" fill="url(#blister-alu)" stroke="#94A3B8" stroke-width="1.5" />
+  <!-- 3D Realistic Pharmaceutical Blister Strip -->
+  <g filter="url(#strip-shadow)">
+    <!-- Base Aluminum Foil Card -->
+    <rect x="25" y="25" width="550" height="315" rx="18" fill="url(#foil-metallic)" stroke="#64748B" stroke-width="1.2" />
+    <rect x="25" y="25" width="550" height="315" rx="18" fill="url(#foil-texture)" />
 
-    <!-- Top Metallic Header / Brand Banner -->
-    <rect x="25" y="25" width="550" height="58" rx="16" fill="#0D3B66" />
-    <!-- Flatten bottom corners of header -->
-    <rect x="25" y="55" width="550" height="28" fill="#0D3B66" />
+    <!-- Top Brand Header Banner -->
+    <rect x="25" y="25" width="550" height="66" rx="18" fill="#312E81" />
+    <rect x="25" y="55" width="550" height="36" fill="#312E81" />
 
-    <!-- Brand Header Text -->
-    <text x="45" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="900" fill="#FFFFFF" letter-spacing="0.5">
-      TAXIM-O 200
-    </text>
-    <text x="45" y="74" font-family="'Noto Sans Devanagari', system-ui" font-size="12" font-weight="700" fill="#E2E8F0">
-      टैक्सिम-ओ 200
-    </text>
-
-    <!-- Pack size badge -->
-    <rect x="440" y="40" width="120" height="26" rx="6" fill="#000000" opacity="0.3" />
-    <text x="500" y="57" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">
-      10 Tablets
-    </text>
-
-    
-    <!-- Mandatory Schedule H / H1 Lal Lakir (Red Warning Stripe) -->
-    <rect x="190" y="83" width="8" height="252" fill="#DC2626" />
-    <text x="195" y="200" transform="rotate(-90 195 200)" font-family="system-ui, sans-serif" font-size="9" font-weight="900" fill="#DC2626" letter-spacing="2">
-      SCHEDULE H PRESCRIPTION DRUG - CAUTION
-    </text>
-    
-
-    <!-- 6 Pill Blister Relief Pockets -->
-    <!-- Col 1 -->
-    <g filter="url(#pocket-shadow)">
-      <rect x="50" y="105" width="55" height="42" rx="16" fill="#FFFFFF" stroke="url(#pocket-rim)" stroke-width="2.5" />
-      <rect x="50" y="170" width="55" height="42" rx="16" fill="#FFFFFF" stroke="url(#pocket-rim)" stroke-width="2.5" />
-      <rect x="50" y="235" width="55" height="42" rx="16" fill="#FFFFFF" stroke="url(#pocket-rim)" stroke-width="2.5" />
+    <!-- Brand Header Typography -->
+    <g transform="translate(45, 42)">
+      <text x="0" y="20" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" letter-spacing="0.5">
+        TAXIM-O 200
+      </text>
+      <text x="0" y="38" font-family="'Noto Sans Devanagari', system-ui" font-size="11" font-weight="700" fill="#A5B4FC">
+        टैक्सिम-ओ २००
+      </text>
+      
+      <!-- Tagline / Salt -->
+      <text x="180" y="26" font-family="system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" opacity="0.95">
+        CEFIXIME TABLETS I.P. 200 mg
+      </text>
     </g>
 
-    <!-- Col 2 -->
-    <g filter="url(#pocket-shadow)">
-      <rect x="120" y="105" width="55" height="42" rx="16" fill="#FFFFFF" stroke="url(#pocket-rim)" stroke-width="2.5" />
-      <rect x="120" y="170" width="55" height="42" rx="16" fill="#FFFFFF" stroke="url(#pocket-rim)" stroke-width="2.5" />
-      <rect x="120" y="235" width="55" height="42" rx="16" fill="#FFFFFF" stroke="url(#pocket-rim)" stroke-width="2.5" />
+    <!-- Manufacturer / Pack badge on top right -->
+    <rect x="420" y="38" width="135" height="28" rx="6" fill="#000000" opacity="0.35" />
+    <text x="487.5" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF">
+      ALKEM • 10 Tablets
+    </text>
+
+    <!-- Schedule H / H1 Statutory Lal Lakir (Red Warning Stripe) -->
+    
+    <rect x="25" y="91" width="550" height="15" fill="#DC2626" />
+    <text x="300" y="102" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7.5" font-weight="900" fill="#FFFFFF" letter-spacing="1">
+      SCHEDULE H1 PRESCRIPTION DRUG - CAUTION: NOT TO BE SOLD WITHOUT PRESCRIPTION
+    </text>
+    
+
+    <!-- Authentic Perforation Lines between Blister Pockets -->
+    <line x1="153" y1="106" x2="153" y2="280" stroke="#94A3B8" stroke-width="0.9" stroke-dasharray="2,3" opacity="0.7" /><line x1="251" y1="106" x2="251" y2="280" stroke="#94A3B8" stroke-width="0.9" stroke-dasharray="2,3" opacity="0.7" /><line x1="349" y1="106" x2="349" y2="280" stroke="#94A3B8" stroke-width="0.9" stroke-dasharray="2,3" opacity="0.7" /><line x1="447" y1="106" x2="447" y2="280" stroke="#94A3B8" stroke-width="0.9" stroke-dasharray="2,3" opacity="0.7" />
+
+    <!-- Blister Pockets Relief Grid -->
+    <g transform="translate(55, 116)">
+      
+          <g transform="translate(49, 40)">
+            <!-- Cavity rim -->
+            <circle cx="0" cy="0" r="31" fill="url(#pocket-cavity)" stroke="url(#pocket-rim)" stroke-width="1.5" />
+            <!-- Round tablet -->
+            <circle cx="0" cy="0" r="28" fill="#FFFFFF" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Scored split line -->
+            <line x1="0" y1="-25" x2="0" y2="25" stroke="#CBD5E1" stroke-width="1.2" />
+            <!-- Bevel edge highlight -->
+            <ellipse cx="-5.6000000000000005" cy="-5.6000000000000005" rx="11.200000000000001" ry="5.6000000000000005" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(147, 40)">
+            <!-- Cavity rim -->
+            <circle cx="0" cy="0" r="31" fill="url(#pocket-cavity)" stroke="url(#pocket-rim)" stroke-width="1.5" />
+            <!-- Round tablet -->
+            <circle cx="0" cy="0" r="28" fill="#FFFFFF" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Scored split line -->
+            <line x1="0" y1="-25" x2="0" y2="25" stroke="#CBD5E1" stroke-width="1.2" />
+            <!-- Bevel edge highlight -->
+            <ellipse cx="-5.6000000000000005" cy="-5.6000000000000005" rx="11.200000000000001" ry="5.6000000000000005" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(245, 40)">
+            <!-- Cavity rim -->
+            <circle cx="0" cy="0" r="31" fill="url(#pocket-cavity)" stroke="url(#pocket-rim)" stroke-width="1.5" />
+            <!-- Round tablet -->
+            <circle cx="0" cy="0" r="28" fill="#FFFFFF" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Scored split line -->
+            <line x1="0" y1="-25" x2="0" y2="25" stroke="#CBD5E1" stroke-width="1.2" />
+            <!-- Bevel edge highlight -->
+            <ellipse cx="-5.6000000000000005" cy="-5.6000000000000005" rx="11.200000000000001" ry="5.6000000000000005" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(343, 40)">
+            <!-- Cavity rim -->
+            <circle cx="0" cy="0" r="31" fill="url(#pocket-cavity)" stroke="url(#pocket-rim)" stroke-width="1.5" />
+            <!-- Round tablet -->
+            <circle cx="0" cy="0" r="28" fill="#FFFFFF" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Scored split line -->
+            <line x1="0" y1="-25" x2="0" y2="25" stroke="#CBD5E1" stroke-width="1.2" />
+            <!-- Bevel edge highlight -->
+            <ellipse cx="-5.6000000000000005" cy="-5.6000000000000005" rx="11.200000000000001" ry="5.6000000000000005" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(441, 40)">
+            <!-- Cavity rim -->
+            <circle cx="0" cy="0" r="31" fill="url(#pocket-cavity)" stroke="url(#pocket-rim)" stroke-width="1.5" />
+            <!-- Round tablet -->
+            <circle cx="0" cy="0" r="28" fill="#FFFFFF" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Scored split line -->
+            <line x1="0" y1="-25" x2="0" y2="25" stroke="#CBD5E1" stroke-width="1.2" />
+            <!-- Bevel edge highlight -->
+            <ellipse cx="-5.6000000000000005" cy="-5.6000000000000005" rx="11.200000000000001" ry="5.6000000000000005" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(49, 120)">
+            <!-- Cavity rim -->
+            <circle cx="0" cy="0" r="31" fill="url(#pocket-cavity)" stroke="url(#pocket-rim)" stroke-width="1.5" />
+            <!-- Round tablet -->
+            <circle cx="0" cy="0" r="28" fill="#FFFFFF" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Scored split line -->
+            <line x1="0" y1="-25" x2="0" y2="25" stroke="#CBD5E1" stroke-width="1.2" />
+            <!-- Bevel edge highlight -->
+            <ellipse cx="-5.6000000000000005" cy="-5.6000000000000005" rx="11.200000000000001" ry="5.6000000000000005" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(147, 120)">
+            <!-- Cavity rim -->
+            <circle cx="0" cy="0" r="31" fill="url(#pocket-cavity)" stroke="url(#pocket-rim)" stroke-width="1.5" />
+            <!-- Round tablet -->
+            <circle cx="0" cy="0" r="28" fill="#FFFFFF" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Scored split line -->
+            <line x1="0" y1="-25" x2="0" y2="25" stroke="#CBD5E1" stroke-width="1.2" />
+            <!-- Bevel edge highlight -->
+            <ellipse cx="-5.6000000000000005" cy="-5.6000000000000005" rx="11.200000000000001" ry="5.6000000000000005" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(245, 120)">
+            <!-- Cavity rim -->
+            <circle cx="0" cy="0" r="31" fill="url(#pocket-cavity)" stroke="url(#pocket-rim)" stroke-width="1.5" />
+            <!-- Round tablet -->
+            <circle cx="0" cy="0" r="28" fill="#FFFFFF" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Scored split line -->
+            <line x1="0" y1="-25" x2="0" y2="25" stroke="#CBD5E1" stroke-width="1.2" />
+            <!-- Bevel edge highlight -->
+            <ellipse cx="-5.6000000000000005" cy="-5.6000000000000005" rx="11.200000000000001" ry="5.6000000000000005" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(343, 120)">
+            <!-- Cavity rim -->
+            <circle cx="0" cy="0" r="31" fill="url(#pocket-cavity)" stroke="url(#pocket-rim)" stroke-width="1.5" />
+            <!-- Round tablet -->
+            <circle cx="0" cy="0" r="28" fill="#FFFFFF" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Scored split line -->
+            <line x1="0" y1="-25" x2="0" y2="25" stroke="#CBD5E1" stroke-width="1.2" />
+            <!-- Bevel edge highlight -->
+            <ellipse cx="-5.6000000000000005" cy="-5.6000000000000005" rx="11.200000000000001" ry="5.6000000000000005" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
+
+          <g transform="translate(441, 120)">
+            <!-- Cavity rim -->
+            <circle cx="0" cy="0" r="31" fill="url(#pocket-cavity)" stroke="url(#pocket-rim)" stroke-width="1.5" />
+            <!-- Round tablet -->
+            <circle cx="0" cy="0" r="28" fill="#FFFFFF" stroke="#94A3B8" stroke-width="0.8" />
+            <!-- Scored split line -->
+            <line x1="0" y1="-25" x2="0" y2="25" stroke="#CBD5E1" stroke-width="1.2" />
+            <!-- Bevel edge highlight -->
+            <ellipse cx="-5.6000000000000005" cy="-5.6000000000000005" rx="11.200000000000001" ry="5.6000000000000005" fill="#FFFFFF" opacity="0.5" />
+          </g>
+        
     </g>
 
-    <!-- Printed Information & Regulatory Data -->
-    <g transform="translate(220, 105)">
-      <!-- Salt Composition -->
-      <text x="0" y="15" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#0F172A">
-        Cefixime
+    <!-- Bottom Batch & Expiry Imprint Bar -->
+    <g transform="translate(45, 292)">
+      <rect x="0" y="0" width="510" height="38" rx="6" fill="#F8FAFC" opacity="0.92" stroke="#CBD5E1" stroke-width="1" />
+      <text x="15" y="16" font-family="monospace" font-size="9.5" font-weight="700" fill="#0F172A">
+        B.No. TAXI25  •  MFD. 01/2025
       </text>
-      <text x="0" y="32" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#334155">
-        Each tablet contains:
-      </text>
-      <text x="0" y="48" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1E293B">
-        Cefixime (200mg)
-      </text>
-
-      <!-- Dosage & Storage -->
-      <text x="0" y="75" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">
-        Dosage: As directed by the Physician.
-      </text>
-      <text x="0" y="90" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">
-        Store below 25°C. Protect from moisture & light.
-      </text>
-      <text x="0" y="105" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">
-        Keep all medicines out of reach of children.
-      </text>
-
-      <!-- Manufacturer line -->
-      <line x1="0" y1="120" x2="330" y2="120" stroke="#94A3B8" stroke-width="1" stroke-dasharray="2 2" />
-      <text x="0" y="136" font-family="system-ui, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A">
-        Mfg. by: Alkem Laboratories Ltd
-      </text>
-
-      <!-- Batch & Expiry Imprint Box -->
-      <rect x="0" y="150" width="330" height="65" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
-      <text x="15" y="172" font-family="monospace" font-size="10" font-weight="700" fill="#1E293B">
-        B.No. MED24535  •  MFD. 01/2025
-      </text>
-      <text x="15" y="190" font-family="monospace" font-size="10" font-weight="700" fill="#DC2626">
+      <text x="15" y="30" font-family="monospace" font-size="9.5" font-weight="800" fill="#DC2626">
         EXP. 12/2027  •  M.R.P. ₹172.00 (INCL. ALL TAXES)
       </text>
-      <text x="15" y="206" font-family="monospace" font-size="9" font-weight="600" fill="#64748B">
-        GTIN: 08901111002018  •  Schedule H1
+
+      <text x="320" y="16" font-family="monospace" font-size="9" font-weight="600" fill="#475569">
+        GTIN: 08901111002018
+      </text>
+      <text x="320" y="30" font-family="system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#0F172A">
+        Mfg: Alkem Laboratories Ltd
       </text>
     </g>
   </g>
