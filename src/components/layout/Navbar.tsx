@@ -11,6 +11,7 @@ import {
   Languages,
   Menu,
   PhoneCall,
+  Layers,
   Search,
   Scale,
   ScanLine,
@@ -27,6 +28,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
+    { href: "/medicines", label: language === "hi" ? "दवा गैलरी" : "Medicine Visuals", icon: Layers },
     { href: "/search", label: language === "hi" ? "दवा खोजें" : "Search Medicines", icon: Search },
     { href: "/compare", label: language === "hi" ? "कीमत तुलना" : "Compare Prices", icon: Scale },
     { href: "/generics", label: language === "hi" ? "किफायती विकल्प" : "Affordable Substitutes", icon: ShieldCheck },

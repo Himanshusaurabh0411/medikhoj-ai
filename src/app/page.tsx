@@ -80,7 +80,22 @@ export default function HomePage() {
     { title: "AYUSH & Herbal", query: "Chyawanprash", icon: Tag, count: "Ayurvedic products" },
   ];
 
-  const featuredMedicines = INDIAN_MEDICINES.slice(0, 6);
+  // Diverse showcase across top prescribed categories in India
+  const featuredIds = [
+    "med-dolo-650",
+    "med-augmentin-625",
+    "med-pan-d",
+    "med-combiflam",
+    "med-asthalin-inhaler",
+    "med-janaushadhi-paracetamol-650",
+    "med-calpol-650",
+    "med-limcee-500",
+    "med-shelcal-500",
+    "med-becosules-z",
+    "med-himalaya-liv-52",
+    "med-dabur-chyawanprash"
+  ];
+  const featuredMedicines = INDIAN_MEDICINES.filter(m => featuredIds.includes(m.id));
 
   return (
     <div className="space-y-12 pb-16">
@@ -361,13 +376,21 @@ export default function HomePage() {
               Verified retail MRPs, normalized price per tablet, and affordable bio-equivalent substitutes.
             </p>
           </div>
-          <Link
-            href="/search"
-            className="text-xs font-bold text-saffron-700 hover:underline flex items-center gap-1"
-          >
-            <span>View All ({INDIAN_MEDICINES.length} cataloged)</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/medicines"
+              className="text-xs font-bold text-teal-800 bg-teal-50 hover:bg-teal-100 px-3 py-1.5 rounded-xl border border-teal-200 transition-colors flex items-center gap-1.5"
+            >
+              <span>🖼️ All 59 Visual Packagings</span>
+            </Link>
+            <Link
+              href="/search"
+              className="text-xs font-bold text-saffron-700 hover:underline flex items-center gap-1"
+            >
+              <span>Search All ({INDIAN_MEDICINES.length})</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
