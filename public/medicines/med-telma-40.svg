@@ -1,159 +1,125 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" style="background:#090E17; border-radius:18px;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" style="background:#0F172A; border-radius:18px;">
   <defs>
-    <!-- Metallic Brushed Aluminum Gradient -->
-    <linearGradient id="foil-metallic" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="blister-alu" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#E2E8F0" />
-      <stop offset="20%" stop-color="#CBD5E1" />
-      <stop offset="40%" stop-color="#F1F5F9" />
-      <stop offset="60%" stop-color="#CBD5E1" />
-      <stop offset="80%" stop-color="#E2E8F0" />
-      <stop offset="100%" stop-color="#94A3B8" />
+      <stop offset="25%" stop-color="#CBD5E1" />
+      <stop offset="50%" stop-color="#F1F5F9" />
+      <stop offset="75%" stop-color="#94A3B8" />
+      <stop offset="100%" stop-color="#CBD5E1" />
     </linearGradient>
 
-    <!-- Realistic Pill Convex Gradient -->
-    <radialGradient id="pill-glow" cx="40%" cy="35%" r="65%">
-      <stop offset="0%" stop-color="#FFFFFF" />
+    <linearGradient id="pocket-rim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#64748B" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.8" />
+    </linearGradient>
+
+    <linearGradient id="capsule-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C2410C" />
+      <stop offset="50%" stop-color="#C2410C" />
       <stop offset="50%" stop-color="#FFFFFF" />
-      <stop offset="100%" stop-color="#94A3B8" />
-    </radialGradient>
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </linearGradient>
 
-    <!-- Blister Pocket Cavity Shader -->
-    <radialGradient id="pocket-cavity" cx="50%" cy="50%" r="50%">
-      <stop offset="70%" stop-color="transparent" />
-      <stop offset="90%" stop-color="#64748B" stop-opacity="0.3" />
-      <stop offset="100%" stop-color="#334155" stop-opacity="0.7" />
-    </radialGradient>
+    <filter id="pocket-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.35" />
+    </filter>
 
-    <!-- Micro-embossed foil texture pattern -->
-    <pattern id="foil-grid" width="6" height="6" patternUnits="userSpaceOnUse">
-      <line x1="0" y1="0" x2="6" y2="0" stroke="#94A3B8" stroke-width="0.35" opacity="0.35" />
-      <line x1="0" y1="0" x2="0" y2="6" stroke="#94A3B8" stroke-width="0.35" opacity="0.35" />
-    </pattern>
-
-    <filter id="strip-shadow" x="-5%" y="-5%" width="115%" height="115%">
-      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.45" />
+    <filter id="blister-shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity="0.5" />
     </filter>
   </defs>
 
-  <!-- Ambient background glow -->
-  <radialGradient id="ambient" cx="50%" cy="50%" r="70%">
-    <stop offset="0%" stop-color="#1E293B" stop-opacity="0.8" />
-    <stop offset="100%" stop-color="#090E17" stop-opacity="1" />
-  </radialGradient>
-  <rect width="600" height="380" fill="url(#ambient)" />
+  <!-- Ground Shadow -->
+  <ellipse cx="300" cy="350" rx="270" ry="18" fill="#000000" opacity="0.4" />
 
-  <!-- Realistic Blister Strip Body -->
-  <g filter="url(#strip-shadow)">
-    <!-- Base Aluminum Foil -->
-    <rect x="35" y="30" width="530" height="320" rx="18" fill="url(#foil-metallic)" stroke="#64748B" stroke-width="1.5" />
-    <!-- Foil Texture Overlay -->
-    <rect x="35" y="30" width="530" height="320" rx="18" fill="url(#foil-grid)" />
+  <!-- Main Aluminum Blister Card -->
+  <g filter="url(#blister-shadow)">
+    <rect x="25" y="25" width="550" height="310" rx="16" fill="url(#blister-alu)" stroke="#94A3B8" stroke-width="1.5" />
 
-    <!-- Authentic Perforation Lines -->
-    <line x1="165" y1="30" x2="165" y2="350" stroke="#64748B" stroke-width="1" stroke-dasharray="3,3" opacity="0.6" />
-    <line x1="295" y1="30" x2="295" y2="350" stroke="#64748B" stroke-width="1" stroke-dasharray="3,3" opacity="0.6" />
-    <line x1="425" y1="30" x2="425" y2="350" stroke="#64748B" stroke-width="1" stroke-dasharray="3,3" opacity="0.6" />
+    <!-- Top Metallic Header / Brand Banner -->
+    <rect x="25" y="25" width="550" height="58" rx="16" fill="#C2410C" />
+    <!-- Flatten bottom corners of header -->
+    <rect x="25" y="55" width="550" height="28" fill="#C2410C" />
 
-    <!-- STATUTORY SCHEDULE H / H1 LAL LAKIR (RED LINE) -->
-    
-    <g id="lal-lakir">
-      <rect x="35" y="172" width="530" height="18" fill="#C8162A" />
-      <text x="300" y="185" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8.5" font-weight="900" fill="#FFFFFF" letter-spacing="1">
-        SCHEDULE H PRESCRIPTION DRUG - CAUTION: NOT TO BE SOLD BY RETAIL WITHOUT PRESCRIPTION
-      </text>
-    </g>
-
-    <!-- GENERIC BIO-EQUIVALENT SUBSTITUTE QUALITY BANNER -->
-    
-
-    <!-- BLISTER POCKETS WITH EMBOSSED PILLS (Top & Bottom Rows) -->
-    <!-- Pocket 1 -->
-    <g transform="translate(100, 100)">
-      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
-      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
-      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
-    </g>
-
-    <!-- Pocket 2 -->
-    <g transform="translate(230, 100)">
-      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
-      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
-      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
-    </g>
-
-    <!-- Pocket 3 -->
-    <g transform="translate(360, 100)">
-      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
-      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
-      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
-    </g>
-
-    <!-- Pocket 4 -->
-    <g transform="translate(490, 100)">
-      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
-      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
-      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
-    </g>
-
-    <!-- Bottom Row Pockets -->
-    <!-- Pocket 5 -->
-    <g transform="translate(100, 270)">
-      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
-      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
-      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
-    </g>
-
-    <!-- Pocket 6 -->
-    <g transform="translate(230, 270)">
-      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
-      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
-      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
-    </g>
-
-    <!-- Pocket 7 -->
-    <g transform="translate(360, 270)">
-      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
-      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
-      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
-    </g>
-
-    <!-- Pocket 8 -->
-    <g transform="translate(490, 270)">
-      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
-      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
-      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
-    </g>
-
-    <!-- PRINTED PHARMACEUTICAL FOIL LABEL -->
-    <!-- Main Brand Block -->
-    <rect x="50" y="45" width="500" height="28" rx="6" fill="#090E17" opacity="0.08" />
-    <text x="60" y="65" font-family="system-ui, sans-serif" font-size="20" font-weight="900" fill="#4338CA" letter-spacing="0.5">
+    <!-- Brand Header Text -->
+    <text x="45" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="900" fill="#FFFFFF" letter-spacing="0.5">
       TELMA 40
     </text>
-    <text x="320" y="65" font-family="'Noto Sans Devanagari', system-ui" font-size="14" font-weight="700" fill="#334155">
-      टेल्मा ४०
+    <text x="45" y="74" font-family="'Noto Sans Devanagari', system-ui" font-size="12" font-weight="700" fill="#E2E8F0">
+      टेल्मा 40
     </text>
 
-    <!-- Salt Composition (Pharmacopeial Formulation) -->
-    <text x="60" y="142" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#1E293B">
-      Telmisartan Tablets I.P. 40 mg
-    </text>
-    <text x="60" y="158" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">
-      Therapeutic Focus: Angiotensin II Receptor Antagonist (Cardio Care) • Pack of 15 Tablets
+    <!-- Pack size badge -->
+    <rect x="440" y="40" width="120" height="26" rx="6" fill="#000000" opacity="0.3" />
+    <text x="500" y="57" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">
+      30 Tablets
     </text>
 
-    <!-- Batch, Manufacturing, Expiry & Pricing Stamp -->
-    <rect x="50" y="306" width="500" height="34" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
-    <text x="60" y="322" font-family="monospace" font-size="9" font-weight="700" fill="#0F172A">
-      B.No: GLN24T19 | MFG: 02/2024 | EXP: 09/2026
+    
+    <!-- Mandatory Schedule H / H1 Lal Lakir (Red Warning Stripe) -->
+    <rect x="190" y="83" width="8" height="252" fill="#DC2626" />
+    <text x="195" y="200" transform="rotate(-90 195 200)" font-family="system-ui, sans-serif" font-size="9" font-weight="900" fill="#DC2626" letter-spacing="2">
+      SCHEDULE H PRESCRIPTION DRUG - CAUTION
     </text>
-    <text x="60" y="334" font-family="monospace" font-size="8.5" font-weight="800" fill="#C8162A">
-      M.R.P. ₹238.00 (INCL. OF ALL TAXES) • GTIN: 08901117004436
-    </text>
+    
 
-    <!-- Manufacturer Insignia -->
-    <text x="540" y="328" text-anchor="end" font-family="system-ui, sans-serif" font-size="9" font-weight="800" fill="#334155">
-      Glenmark Pharmaceuticals Ltd
-    </text>
+    <!-- 6 Pill Blister Relief Pockets -->
+    <!-- Col 1 -->
+    <g filter="url(#pocket-shadow)">
+      <rect x="50" y="105" width="55" height="42" rx="16" fill="#FFFFFF" stroke="url(#pocket-rim)" stroke-width="2.5" />
+      <rect x="50" y="170" width="55" height="42" rx="16" fill="#FFFFFF" stroke="url(#pocket-rim)" stroke-width="2.5" />
+      <rect x="50" y="235" width="55" height="42" rx="16" fill="#FFFFFF" stroke="url(#pocket-rim)" stroke-width="2.5" />
+    </g>
+
+    <!-- Col 2 -->
+    <g filter="url(#pocket-shadow)">
+      <rect x="120" y="105" width="55" height="42" rx="16" fill="#FFFFFF" stroke="url(#pocket-rim)" stroke-width="2.5" />
+      <rect x="120" y="170" width="55" height="42" rx="16" fill="#FFFFFF" stroke="url(#pocket-rim)" stroke-width="2.5" />
+      <rect x="120" y="235" width="55" height="42" rx="16" fill="#FFFFFF" stroke="url(#pocket-rim)" stroke-width="2.5" />
+    </g>
+
+    <!-- Printed Information & Regulatory Data -->
+    <g transform="translate(220, 105)">
+      <!-- Salt Composition -->
+      <text x="0" y="15" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#0F172A">
+        Telmisartan
+      </text>
+      <text x="0" y="32" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#334155">
+        Each tablet contains:
+      </text>
+      <text x="0" y="48" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1E293B">
+        Telmisartan (40mg)
+      </text>
+
+      <!-- Dosage & Storage -->
+      <text x="0" y="75" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">
+        Dosage: As directed by the Physician.
+      </text>
+      <text x="0" y="90" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">
+        Store below 25°C. Protect from moisture & light.
+      </text>
+      <text x="0" y="105" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">
+        Keep all medicines out of reach of children.
+      </text>
+
+      <!-- Manufacturer line -->
+      <line x1="0" y1="120" x2="330" y2="120" stroke="#94A3B8" stroke-width="1" stroke-dasharray="2 2" />
+      <text x="0" y="136" font-family="system-ui, sans-serif" font-size="9.5" font-weight="700" fill="#0F172A">
+        Mfg. by: Glenmark Pharmaceuticals Ltd
+      </text>
+
+      <!-- Batch & Expiry Imprint Box -->
+      <rect x="0" y="150" width="330" height="65" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
+      <text x="15" y="172" font-family="monospace" font-size="10" font-weight="700" fill="#1E293B">
+        B.No. MED24871  •  MFD. 01/2025
+      </text>
+      <text x="15" y="190" font-family="monospace" font-size="10" font-weight="700" fill="#DC2626">
+        EXP. 12/2027  •  M.R.P. ₹236.40 (INCL. ALL TAXES)
+      </text>
+      <text x="15" y="206" font-family="monospace" font-size="9" font-weight="600" fill="#64748B">
+        GTIN: 08901023001017  •  Schedule H
+      </text>
+    </g>
   </g>
 </svg>

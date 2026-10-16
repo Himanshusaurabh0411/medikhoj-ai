@@ -1,72 +1,49 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" style="background:#F8F6F2; border-radius:18px;">
   <defs>
     <linearGradient id="jar-body" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#451A03" />
-      <stop offset="25%" stop-color="#78350F" />
-      <stop offset="50%" stop-color="#B45309" />
-      <stop offset="75%" stop-color="#78350F" />
-      <stop offset="100%" stop-color="#291003" />
+      <stop offset="0%" stop-color="#312E81" />
+      <stop offset="30%" stop-color="#4338CA" />
+      <stop offset="50%" stop-color="#6366F1" />
+      <stop offset="70%" stop-color="#4338CA" />
+      <stop offset="100%" stop-color="#1E1B4B" />
     </linearGradient>
-    <linearGradient id="gold-cap" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#78350F" />
-      <stop offset="30%" stop-color="#F59E0B" />
-      <stop offset="50%" stop-color="#FDE68A" />
-      <stop offset="70%" stop-color="#D97706" />
-      <stop offset="100%" stop-color="#78350F" />
+    <linearGradient id="cap-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D1D5DB" />
+      <stop offset="50%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#9CA3AF" />
     </linearGradient>
     <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
       <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#090E17" flood-opacity="0.25" />
     </filter>
   </defs>
 
-  <!-- Shadow below container -->
   <ellipse cx="300" cy="340" rx="140" ry="20" fill="#090E17" opacity="0.18" />
 
-  <!-- Container Base -->
   <g filter="url(#shadow)">
-    <!-- Main Body -->
-    <rect x="200" y="90" width="200" height="230" rx="30" fill="url(#jar-body)" />
+    <rect x="200" y="90" width="200" height="230" rx="30" fill="#78350F" />
+    <rect x="230" y="45" width="140" height="50" rx="12" fill="url(#cap-grad)" />
 
-    <!-- Screw Cap -->
-    <rect x="230" y="45" width="140" height="50" rx="12" fill="url(#gold-cap)" />
-    <!-- Cap Ridges -->
-    <line x1="250" y1="45" x2="250" y2="95" stroke="#78350F" stroke-width="2" opacity="0.4" />
-    <line x1="275" y1="45" x2="275" y2="95" stroke="#78350F" stroke-width="2" opacity="0.4" />
-    <line x1="300" y1="45" x2="300" y2="95" stroke="#78350F" stroke-width="2" opacity="0.4" />
-    <line x1="325" y1="45" x2="325" y2="95" stroke="#78350F" stroke-width="2" opacity="0.4" />
-    <line x1="350" y1="45" x2="350" y2="95" stroke="#78350F" stroke-width="2" opacity="0.4" />
-
-    <!-- Label Wrap -->
     <rect x="205" y="115" width="190" height="175" rx="10" fill="#FFFDF9" stroke="#E2DCD5" stroke-width="1.5" />
-
-    <!-- Label Header -->
-    <rect x="205" y="115" width="190" height="32" rx="10" fill="#047857" />
+    <rect x="205" y="115" width="190" height="32" rx="10" fill="#B45309" />
     <text x="300" y="136" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" letter-spacing="1">
-      HEPATO-PROTECTIVE AYURVEDIC FORMULATION
+      AYURVEDIC RASAYANA
     </text>
 
-    <!-- Brand Name -->
-    <text x="300" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="900" fill="#090E17">
+    <text x="300" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="900" fill="#090E17">
       HIMALAYA LIV.52
     </text>
-    <text x="300" y="190" text-anchor="middle" font-family="'Noto Sans Devanagari', system-ui" font-size="12" font-weight="700" fill="#78350F">
-      हिमालय लिव.५२
+    <text x="300" y="188" text-anchor="middle" font-family="'Noto Sans Devanagari', system-ui" font-size="11" font-weight="700" fill="#B45309">
+      हिमालय लिव.52
     </text>
 
-    <!-- Composition Line -->
-    <foreignObject x="215" y="196" width="170" height="42">
-      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:system-ui, sans-serif; font-size:8.5px; text-align:center; color:#57534E; font-weight:600; line-height:1.2;">
-        Ayurvedic Proprietary Formulation (Himsra, Kasani)
-      </div>
-    </foreignObject>
+    <text x="300" y="212" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">
+      Himsra (Capparis spinosa 65mg) + Kasan...
+    </text>
+    <text x="300" y="228" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#0F172A">
+      100 Tablets • ₹180.00
+    </text>
 
-    <!-- Batch & Regulatory stamp -->
-    <rect x="215" y="240" width="170" height="40" rx="6" fill="#F5F3EF" stroke="#E7E5E4" stroke-width="1" />
-    <text x="222" y="254" font-family="monospace" font-size="8" font-weight="700" fill="#44403C">B.No: HIM24L52 | EXP: 06/2027</text>
-    <text x="222" y="268" font-family="monospace" font-size="8" font-weight="700" fill="#090E17">MRP: ₹180.00 (100 Tablets)</text>
-
-    <!-- Manufacturer Seal -->
-    <text x="300" y="284" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7.5" font-weight="700" fill="#78716C">
+    <text x="300" y="270" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748B">
       The Himalaya Drug Company
     </text>
   </g>

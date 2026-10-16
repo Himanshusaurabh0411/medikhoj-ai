@@ -20,6 +20,7 @@ export function MedicinePackagingImage({
 }: Props) {
   const [modalOpen, setModalOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   const imageSrc = medicine.imageUrl || `/medicines/${medicine.id}.svg`;
   const isScheduleRedLine = medicine.prescriptionCategory === "Schedule H" || medicine.prescriptionCategory === "Schedule H1";
@@ -41,13 +42,36 @@ export function MedicinePackagingImage({
         {/* Subtle Ambient Radial Glow */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
-        {/* Real Packaging SVG Image */}
-        <img
-          src={imageSrc}
-          alt={`Packaging photograph of ${medicine.brandName} (${medicine.saltComposition})`}
-          className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-300"
-          loading="lazy"
-        />
+        {/* Real Packaging SVG Image or Dynamic Blister Fallback */}
+        {hasError ? (
+          <div className="w-full h-full flex flex-col justify-between p-3 bg-gradient-to-br from-slate-200 via-slate-100 to-slate-300 text-obsidian-950 select-none">
+            <div className="flex justify-between items-start">
+              <span className="text-[11px] font-black uppercase text-obsidian-900 tracking-wider truncate max-w-[140px]">
+                {medicine.brandName}
+              </span>
+              <span className="text-[9px] font-mono text-slate-600 bg-white/70 px-1.5 py-0.5 rounded font-bold">
+                {medicine.strength}
+              </span>
+            </div>
+            <div className="grid grid-cols-4 gap-1.5 py-1">
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="h-6 rounded-full bg-gradient-to-b from-white via-slate-100 to-slate-300 shadow-inner border border-slate-300/80" />
+              ))}
+            </div>
+            <div className="flex justify-between items-center text-[8.5px] font-mono text-slate-700 border-t border-slate-300/60 pt-1">
+              <span className="truncate max-w-[110px]">{medicine.manufacturer.name}</span>
+              <span className="font-bold text-obsidian-950">₹{medicine.mrp.toFixed(2)}</span>
+            </div>
+          </div>
+        ) : (
+          <img
+            src={imageSrc}
+            alt={`Packaging photograph of ${medicine.brandName} (${medicine.saltComposition})`}
+            className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-300"
+            loading="lazy"
+            onError={() => setHasError(true)}
+          />
+        )}
 
         {/* Floating Packaging Type / Schedule Red Line Indicator */}
         <div className="absolute top-2 left-2 flex items-center gap-1.5 z-10 pointer-events-none">
@@ -126,11 +150,33 @@ export function MedicinePackagingImage({
 
             {/* Large Packaging Visual */}
             <div className="relative aspect-[16/10] bg-obsidian-950 flex items-center justify-center p-2">
-              <img
-                src={imageSrc}
-                alt={`High-resolution packaging visual for ${medicine.brandName}`}
-                className="w-full h-full object-contain"
-              />
+              {hasError ? (
+                <div className="w-full h-full flex flex-col justify-between p-6 bg-gradient-to-br from-slate-200 via-slate-100 to-slate-300 text-obsidian-950 rounded-xl">
+                  <div className="flex justify-between items-start border-b border-slate-300 pb-2">
+                    <div>
+                      <h4 className="text-xl font-black text-obsidian-900">{medicine.brandName}</h4>
+                      <p className="text-xs font-mono text-slate-600">{medicine.saltComposition}</p>
+                    </div>
+                    <span className="bg-obsidian-900 text-white text-xs px-2.5 py-1 rounded font-bold">{medicine.packSize} {medicine.packUnit}</span>
+                  </div>
+                  <div className="grid grid-cols-5 gap-3 py-4">
+                    {[...Array(10)].map((_, i) => (
+                      <div key={i} className="h-10 rounded-full bg-gradient-to-b from-white to-slate-300 shadow-inner border border-slate-300" />
+                    ))}
+                  </div>
+                  <div className="flex justify-between items-center text-xs font-mono text-slate-700 border-t border-slate-300 pt-2">
+                    <span>Mfg: {medicine.manufacturer.name}</span>
+                    <span className="font-bold text-surgical-600">MRP: ₹{medicine.mrp.toFixed(2)}</span>
+                  </div>
+                </div>
+              ) : (
+                <img
+                  src={imageSrc}
+                  alt={`High-resolution packaging visual for ${medicine.brandName}`}
+                  className="w-full h-full object-contain"
+                  onError={() => setHasError(true)}
+                />
+              )}
             </div>
 
             {/* Detailed packaging metadata */}

@@ -2,7 +2,7 @@ export type PrescriptionCategory = 'Schedule H' | 'Schedule H1' | 'Schedule X' |
 
 export type ProductType = 'allopathic' | 'ayush';
 
-export type UnitType = 'tablet' | 'capsule' | 'ml' | 'gm' | 'vial' | 'strip' | 'sachet';
+export type UnitType = 'tablet' | 'capsule' | 'ml' | 'gm' | 'gram' | 'vial' | 'strip' | 'sachet' | 'puff';
 
 export type VerificationStatus = 'officially_verified' | 'secondary_imported' | 'user_reported_pending' | 'unverified';
 

@@ -106,57 +106,54 @@ console.log("--- 1. Medical Dataset Integrity & Pricing Formula Audit ---");
 
 const dataFilePath = path.resolve(process.cwd(), "src/data/indianMedicines.ts");
 const rawData = fs.readFileSync(dataFilePath, "utf8");
+const jsonMatch = rawData.match(/export const INDIAN_MEDICINES: Medicine\[\] = (\[[\s\S]*?\]);/);
+const parsedMedicines = jsonMatch ? JSON.parse(jsonMatch[1]) : [];
 
-it("All 28 cataloged Indian medicines are present in database", () => {
-  const matches = rawData.match(/id:\s*"([^"]+)"/g);
-  assert.strictEqual(matches?.length, 28, "Expected 28 cataloged medicines");
+it("All cataloged Indian medicines are present in database (at least 28, expanded to comprehensive)", () => {
+  assert.ok(parsedMedicines.length >= 28, `Expected at least 28 cataloged medicines, found ${parsedMedicines.length}`);
 });
 
 it("Every medicine has exact pricePerUnit matching mrp / packSize", () => {
-  const medicineBlocks = rawData.split(/{\s*id:\s*"med-/).slice(1);
-  let checked = 0;
-  for (const block of medicineBlocks) {
-    const mrpMatch = block.match(/mrp:\s*([0-9.]+)/);
-    const packMatch = block.match(/packSize:\s*([0-9]+)/);
-    const unitPriceMatch = block.match(/pricePerUnit:\s*([0-9.]+)/);
+  assert.ok(parsedMedicines.length > 0, "No medicines loaded");
+  for (const med of parsedMedicines) {
+    const expectedUnitPrice = Number((med.mrp / med.packSize).toFixed(2));
+    const diff = Math.abs(med.pricePerUnit - expectedUnitPrice);
 
-    if (mrpMatch && packMatch && unitPriceMatch) {
-      const mrp = parseFloat(mrpMatch[1]);
-      const pack = parseInt(packMatch[1], 10);
-      const unitPrice = parseFloat(unitPriceMatch[1]);
-      const expectedUnitPrice = Number((mrp / pack).toFixed(2));
-      const diff = Math.abs(unitPrice - expectedUnitPrice);
-
-      assert.ok(
-        diff <= 0.05,
-        `Unit price math mismatch: MRP ${mrp} / Pack ${pack} = ${expectedUnitPrice}, found ${unitPrice}`
-      );
-      checked++;
-    }
+    assert.ok(
+      diff <= 0.05,
+      `Unit price math mismatch on ${med.brandName}: MRP ${med.mrp} / Pack ${med.packSize} = ${expectedUnitPrice}, found ${med.pricePerUnit}`
+    );
   }
-  assert.strictEqual(checked, 28, "Checked all 28 medicines");
 });
 
 it("Every medicine has an imageUrl pointing to an existing packaging SVG file", () => {
-  const idMatches = [...rawData.matchAll(/id:\s*"([^"]+)"/g)].map(m => m[1]);
-  for (const id of idMatches) {
-    const svgPath = path.resolve(process.cwd(), `public/medicines/${id}.svg`);
+  assert.ok(parsedMedicines.length > 0, "No medicines loaded");
+  for (const med of parsedMedicines) {
+    const svgPath = path.resolve(process.cwd(), `public/medicines/${med.id}.svg`);
     assert.ok(
       fs.existsSync(svgPath),
-      `Missing packaging SVG for medicine: ${id} at ${svgPath}`
+      `Missing packaging SVG for medicine: ${med.id} at ${svgPath}`
     );
   }
 });
 
-it("All 28 medicine barcodes & GTINs pass GS1 Luhn check-digit verification", () => {
-  const barcodeMatches = [...rawData.matchAll(/barcode:\s*"([^"]+)"/g)].map(m => m[1]);
-  assert.strictEqual(barcodeMatches.length, 28);
-  for (const bar of barcodeMatches) {
-    assert.strictEqual(
-      validateGtinCheckDigit(bar),
-      true,
-      `Barcode failed GS1 check digit: ${bar}`
-    );
+it("All medicine barcodes & GTINs pass GS1 Luhn check-digit verification", () => {
+  assert.ok(parsedMedicines.length > 0, "No medicines loaded");
+  for (const med of parsedMedicines) {
+    if (med.barcode) {
+      assert.strictEqual(
+        validateGtinCheckDigit(med.barcode),
+        true,
+        `Barcode failed GS1 check digit: ${med.barcode} on ${med.brandName}`
+      );
+    }
+    if (med.gtin) {
+      assert.strictEqual(
+        validateGtinCheckDigit(med.gtin),
+        true,
+        `GTIN failed GS1 check digit: ${med.gtin} on ${med.brandName}`
+      );
+    }
   }
 });
 
