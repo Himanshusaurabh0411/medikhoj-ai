@@ -56,6 +56,9 @@ export interface Medicine {
   janAushadhiCode?: string;
   barcode?: string;
   gtin?: string;
+  imageUrl?: string; // Path or URL to realistic packaging/blister photograph
+  releaseType?: 'immediate' | 'extended' | 'sustained' | 'delayed';
+  isNarrowTherapeuticIndex?: boolean; // Requires strict clinical TDM; brand switching cautioned
   storageInfo: {
     en: string;
     hi: string;
@@ -100,6 +103,11 @@ export interface SubstitutionResult {
     clinicalNote: string;
   }[];
   janAushadhiHighlight?: {
+    medicine: Medicine;
+    savingsPercentage: number;
+    packSavings: number;
+  };
+  lowestPriceSubstitute?: {
     medicine: Medicine;
     savingsPercentage: number;
     packSavings: number;

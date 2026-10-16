@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Medicine } from "@/types/medicine";
 import { ScheduleBadge } from "./ScheduleBadge";
+import { MedicinePackagingImage } from "./MedicinePackagingImage";
 import { useLanguage } from "@/context/LanguageContext";
 import { useCabinet } from "@/context/CabinetContext";
 import { Bookmark, BookmarkCheck, ChevronRight, Scale, ShieldCheck, Tag } from "lucide-react";
@@ -47,6 +48,9 @@ export function MedicineCard({ medicine }: MedicineCardProps) {
       )}
 
       <div className="p-5 flex-1 flex flex-col">
+        {/* Authentic Medicine Packaging / Blister Image */}
+        <MedicinePackagingImage medicine={medicine} size="sm" className="mb-3.5" />
+
         {/* Top Header: Brand Name, Strength, & Schedule */}
         <div className="flex items-start justify-between gap-3 mb-2">
           <div>

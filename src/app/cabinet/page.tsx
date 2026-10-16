@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useCabinet } from "@/context/CabinetContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { ScheduleBadge } from "@/components/common/ScheduleBadge";
+import { MedicinePackagingImage } from "@/components/common/MedicinePackagingImage";
 import {
   AlertOctagon,
   AlertTriangle,
@@ -120,6 +121,7 @@ export default function CabinetPage() {
                 className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow"
               >
                 <div>
+                  <MedicinePackagingImage medicine={medicine} size="sm" className="mb-3" />
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <Link

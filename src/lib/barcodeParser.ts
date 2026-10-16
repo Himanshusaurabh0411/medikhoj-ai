@@ -1,4 +1,4 @@
-import { ParsedGS1Data, UnknownBarcodeSubmission } from "@/types/medicine";
+import type { ParsedGS1Data, UnknownBarcodeSubmission } from "@/types/medicine";
 
 /**
  * Validates GTIN check digit using Luhn-like algorithm for GTIN-8, 12, 13, 14

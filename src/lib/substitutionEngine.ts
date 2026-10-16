@@ -30,7 +30,12 @@ export function areMedicinesStrictlyEquivalent(medA: Medicine, medB: Medicine): 
     return false;
   }
 
-  // 5. Compare active ingredients count
+  // 5. Release type must match (e.g. immediate release vs sustained release)
+  if (medA.releaseType && medB.releaseType && medA.releaseType !== medB.releaseType) {
+    return false;
+  }
+
+  // 6. Compare active ingredients count
   if (medA.activeIngredients.length !== medB.activeIngredients.length) {
     return false;
   }
@@ -139,17 +144,26 @@ export function findSubstitutions(referenceMedicine: Medicine): SubstitutionResu
     }
   }
 
-  // Sort exact equivalents: Jan Aushadhi first, then lowest unit price
-  exactEquivalentsList.sort((a, b) => {
-    if (a.isJanAushadhi && !b.isJanAushadhi) return -1;
-    if (!a.isJanAushadhi && b.isJanAushadhi) return 1;
-    return a.medicine.pricePerUnit - b.medicine.pricePerUnit;
-  });
+  // Sort exact equivalents purely by lowest unit price
+  exactEquivalentsList.sort((a, b) => a.medicine.pricePerUnit - b.medicine.pricePerUnit);
+
+  // Lowest price substitute with positive savings
+  const cheapestEquivalent = exactEquivalentsList.find(e => e.isCheaper);
+  const lowestPriceSubstitute = cheapestEquivalent
+    ? {
+        medicine: cheapestEquivalent.medicine,
+        savingsPercentage: cheapestEquivalent.savingsPercentage,
+        packSavings: Number(
+          (referenceMedicine.mrp - cheapestEquivalent.medicine.pricePerUnit * referenceMedicine.packSize).toFixed(2)
+        )
+      }
+    : undefined;
 
   return {
     referenceMedicine,
     exactEquivalents: exactEquivalentsList,
     sameTherapeuticClass: sameTherapeuticClassList,
-    janAushadhiHighlight,
+    janAushadhiHighlight: janAushadhiHighlight || lowestPriceSubstitute,
+    lowestPriceSubstitute,
   };
 }

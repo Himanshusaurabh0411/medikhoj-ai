@@ -6,6 +6,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   // =========================================================================
   {
     id: "med-dolo-650",
+    imageUrl: "/medicines/med-dolo-650.svg",
+    releaseType: "immediate",
     brandName: "Dolo 650",
     brandNameHindi: "डोलो 650",
     genericName: "Paracetamol",
@@ -36,8 +38,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     ceilingPrice: 1.84,
     nppaNotificationRef: "S.O. 1500(E) NPPA Order 2023",
     isJanAushadhi: false,
-    barcode: "8901117001234",
-    gtin: "08901117001234",
+    barcode: "8901117001237",
+    gtin: "08901117001237",
     storageInfo: {
       en: "Store below 25°C in a dry place protected from direct sunlight and moisture.",
       hi: "25°C से कम तापमान पर सूखी जगह पर रखें। सीधी धूप और नमी से बचाएं।"
@@ -79,6 +81,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-calpol-650",
+    imageUrl: "/medicines/med-calpol-650.svg",
+    releaseType: "immediate",
     brandName: "Calpol 650",
     brandNameHindi: "कैलपोल 650",
     genericName: "Paracetamol",
@@ -109,8 +113,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     ceilingPrice: 1.84,
     nppaNotificationRef: "S.O. 1500(E) NPPA Order 2023",
     isJanAushadhi: false,
-    barcode: "8901043004561",
-    gtin: "08901043004561",
+    barcode: "8901043004562",
+    gtin: "08901043004562",
     storageInfo: {
       en: "Store below 30°C in a dry place away from heat.",
       hi: "30°C से कम तापमान पर सूखी जगह पर रखें।"
@@ -143,6 +147,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-crocin-650",
+    imageUrl: "/medicines/med-crocin-650.svg",
+    releaseType: "immediate",
     brandName: "Crocin 650",
     brandNameHindi: "क्रोसिन 650",
     genericName: "Paracetamol",
@@ -170,8 +176,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     isPriceControlled: true,
     ceilingPrice: 1.84,
     isJanAushadhi: false,
-    barcode: "8901043001188",
-    gtin: "08901043001188",
+    barcode: "8901043001189",
+    gtin: "08901043001189",
     storageInfo: {
       en: "Store protected from moisture below 30°C.",
       hi: "नमी से सुरक्षित 30°C से कम तापमान पर रखें।"
@@ -204,6 +210,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-pacimol-650",
+    imageUrl: "/medicines/med-pacimol-650.svg",
+    releaseType: "immediate",
     brandName: "Pacimol 650",
     brandNameHindi: "पैसिमोल 650",
     genericName: "Paracetamol",
@@ -266,6 +274,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-janaushadhi-paracetamol-650",
+    imageUrl: "/medicines/med-janaushadhi-paracetamol-650.svg",
+    releaseType: "immediate",
     brandName: "Jan Aushadhi Paracetamol 650",
     brandNameHindi: "जन औषधि पैरासिटामोल 650",
     genericName: "Paracetamol",
@@ -297,8 +307,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     nppaNotificationRef: "S.O. 1500(E) NPPA Order 2023",
     isJanAushadhi: true,
     janAushadhiCode: "PMBJP-GEN-0012",
-    barcode: "8908001001211",
-    gtin: "08908001001211",
+    barcode: "8908001001212",
+    gtin: "08908001001212",
     storageInfo: {
       en: "Store in a cool dry place protected from light.",
       hi: "ठंडी और सूखी जगह पर प्रकाश से बचाकर रखें।"
@@ -336,6 +346,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   // =========================================================================
   {
     id: "med-augmentin-625",
+    imageUrl: "/medicines/med-augmentin-625.svg",
+    releaseType: "immediate",
     brandName: "Augmentin 625 Duo",
     brandNameHindi: "ऑगमेंटिन 625 डुओ",
     genericName: "Amoxicillin and Potassium Clavulanate",
@@ -367,8 +379,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     ceilingPrice: 19.46,
     nppaNotificationRef: "S.O. 1501(E) NPPA Order 2023",
     isJanAushadhi: false,
-    barcode: "8901043007812",
-    gtin: "08901043007812",
+    barcode: "8901043007815",
+    gtin: "08901043007815",
     storageInfo: {
       en: "Store protected from moisture and light below 25°C in original moisture-proof strip.",
       hi: "25°C से कम तापमान पर नमी और रोशनी से बचाकर मूल स्ट्रिप में रखें।"
@@ -409,6 +421,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-moxikind-cv-625",
+    imageUrl: "/medicines/med-moxikind-cv-625.svg",
+    releaseType: "immediate",
     brandName: "Moxikind-CV 625",
     brandNameHindi: "मॉक्सीकाइंड-सीवी 625",
     genericName: "Amoxicillin and Potassium Clavulanate",
@@ -438,8 +452,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     isPriceControlled: true,
     ceilingPrice: 19.46,
     isJanAushadhi: false,
-    barcode: "8902043009988",
-    gtin: "08902043009988",
+    barcode: "8902043009984",
+    gtin: "08902043009984",
     storageInfo: {
       en: "Store protected from moisture below 25°C.",
       hi: "25°C से कम तापमान पर नमी से बचाकर रखें।"
@@ -472,6 +486,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-clavam-625",
+    imageUrl: "/medicines/med-clavam-625.svg",
+    releaseType: "immediate",
     brandName: "Clavam 625",
     brandNameHindi: "क्लैवम 625",
     genericName: "Amoxicillin and Potassium Clavulanate",
@@ -501,8 +517,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     isPriceControlled: true,
     ceilingPrice: 19.46,
     isJanAushadhi: false,
-    barcode: "8901117006622",
-    gtin: "08901117006622",
+    barcode: "8901117006621",
+    gtin: "08901117006621",
     storageInfo: {
       en: "Store protected from moisture below 25°C in original strip.",
       hi: "25°C से कम तापमान पर नमी से बचाकर रखें।"
@@ -535,6 +551,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-janaushadhi-amoxi-clav-625",
+    imageUrl: "/medicines/med-janaushadhi-amoxi-clav-625.svg",
+    releaseType: "immediate",
     brandName: "Jan Aushadhi Amoxycillin & Potassium Clavulanate 625",
     brandNameHindi: "जन औषधि एमोक्सिसिलिन और पोटैशियम क्लैवुलैनेट 625",
     genericName: "Amoxicillin and Potassium Clavulanate",
@@ -602,6 +620,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   // =========================================================================
   {
     id: "med-azithral-500",
+    imageUrl: "/medicines/med-azithral-500.svg",
+    releaseType: "immediate",
     brandName: "Azithral 500",
     brandNameHindi: "एजिथ्रल 500",
     genericName: "Azithromycin",
@@ -631,8 +651,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     ceilingPrice: 23.88,
     nppaNotificationRef: "S.O. 1503(E) NPPA Order 2023",
     isJanAushadhi: false,
-    barcode: "8901117009811",
-    gtin: "08901117009811",
+    barcode: "8901117009813",
+    gtin: "08901117009813",
     storageInfo: {
       en: "Store protected from moisture below 30°C.",
       hi: "30°C से कम तापमान पर नमी से सुरक्षित रखें।"
@@ -671,6 +691,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-azee-500",
+    imageUrl: "/medicines/med-azee-500.svg",
+    releaseType: "immediate",
     brandName: "Azee 500",
     brandNameHindi: "एजी 500",
     genericName: "Azithromycin",
@@ -699,8 +721,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     isPriceControlled: true,
     ceilingPrice: 23.88,
     isJanAushadhi: false,
-    barcode: "8901117005423",
-    gtin: "08901117005423",
+    barcode: "8901117005426",
+    gtin: "08901117005426",
     storageInfo: {
       en: "Store below 30°C in a dry place.",
       hi: "30°C से कम तापमान पर सूखी जगह पर रखें।"
@@ -733,6 +755,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-janaushadhi-azithromycin-500",
+    imageUrl: "/medicines/med-janaushadhi-azithromycin-500.svg",
+    releaseType: "immediate",
     brandName: "Jan Aushadhi Azithromycin 500",
     brandNameHindi: "जन औषधि एजिथ्रोमाइसिन 500",
     genericName: "Azithromycin",
@@ -799,6 +823,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   // =========================================================================
   {
     id: "med-glycomet-500",
+    imageUrl: "/medicines/med-glycomet-500.svg",
+    releaseType: "immediate",
     brandName: "Glycomet 500",
     brandNameHindi: "ग्लाइकोमेट 500",
     genericName: "Metformin Hydrochloride",
@@ -828,8 +854,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     ceilingPrice: 1.54,
     nppaNotificationRef: "S.O. 1505(E) NPPA Order 2023",
     isJanAushadhi: false,
-    barcode: "8901117003456",
-    gtin: "08901117003456",
+    barcode: "8901117003453",
+    gtin: "08901117003453",
     storageInfo: {
       en: "Store in a cool dry place protected from light and moisture.",
       hi: "प्रकाश और नमी से बचाकर ठंडी व सूखी जगह पर रखें।"
@@ -868,6 +894,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-janaushadhi-metformin-500",
+    imageUrl: "/medicines/med-janaushadhi-metformin-500.svg",
+    releaseType: "immediate",
     brandName: "Jan Aushadhi Metformin 500",
     brandNameHindi: "जन औषधि मेटफॉर्मिन 500",
     genericName: "Metformin Hydrochloride",
@@ -896,8 +924,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     ceilingPrice: 1.54,
     isJanAushadhi: true,
     janAushadhiCode: "PMBJP-GEN-0118",
-    barcode: "8908001001181",
-    gtin: "08908001001181",
+    barcode: "8908001001182",
+    gtin: "08908001001182",
     storageInfo: {
       en: "Store protected from moisture below 25°C.",
       hi: "25°C से कम तापमान पर नमी से बचाकर रखें।"
@@ -934,6 +962,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   // =========================================================================
   {
     id: "med-pantocid-40",
+    imageUrl: "/medicines/med-pantocid-40.svg",
+    releaseType: "immediate",
     brandName: "Pantocid 40",
     brandNameHindi: "पैंटोसिड 40",
     genericName: "Pantoprazole",
@@ -963,8 +993,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     ceilingPrice: 8.20,
     nppaNotificationRef: "S.O. 1522(E) NPPA Order 2023",
     isJanAushadhi: false,
-    barcode: "8901117006789",
-    gtin: "08901117006789",
+    barcode: "8901117006782",
+    gtin: "08901117006782",
     storageInfo: {
       en: "Store in a cool dry place below 25°C. Swallow whole; do not chew.",
       hi: "25°C से कम तापमान पर सूखी जगह रखें। पूरी गोली निगलें।"
@@ -1003,6 +1033,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-pan-40",
+    imageUrl: "/medicines/med-pan-40.svg",
+    releaseType: "immediate",
     brandName: "Pan 40",
     brandNameHindi: "पैन 40",
     genericName: "Pantoprazole",
@@ -1031,8 +1063,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     isPriceControlled: true,
     ceilingPrice: 8.20,
     isJanAushadhi: false,
-    barcode: "8901117007711",
-    gtin: "08901117007711",
+    barcode: "8901117007710",
+    gtin: "08901117007710",
     storageInfo: {
       en: "Store protected from moisture below 25°C.",
       hi: "25°C से कम तापमान पर नमी से बचाकर रखें।"
@@ -1065,6 +1097,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-janaushadhi-pantoprazole-40",
+    imageUrl: "/medicines/med-janaushadhi-pantoprazole-40.svg",
+    releaseType: "immediate",
     brandName: "Jan Aushadhi Pantoprazole 40",
     brandNameHindi: "जन औषधि पैंटोप्रजोल 40",
     genericName: "Pantoprazole",
@@ -1093,8 +1127,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     ceilingPrice: 8.20,
     isJanAushadhi: true,
     janAushadhiCode: "PMBJP-GEN-0094",
-    barcode: "8908001000948",
-    gtin: "08908001000948",
+    barcode: "8908001000949",
+    gtin: "08908001000949",
     storageInfo: {
       en: "Store in a cool dry place.",
       hi: "ठंडी और सूखी जगह पर रखें।"
@@ -1131,6 +1165,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   // =========================================================================
   {
     id: "med-telma-40",
+    imageUrl: "/medicines/med-telma-40.svg",
+    releaseType: "immediate",
     brandName: "Telma 40",
     brandNameHindi: "टेल्मा 40",
     genericName: "Telmisartan",
@@ -1160,8 +1196,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     ceilingPrice: 6.80,
     nppaNotificationRef: "S.O. 1512(E) NPPA Order 2023",
     isJanAushadhi: false,
-    barcode: "8901117004432",
-    gtin: "08901117004432",
+    barcode: "8901117004436",
+    gtin: "08901117004436",
     storageInfo: {
       en: "Store protected from moisture below 30°C in original blister pack.",
       hi: "मूल ब्लिस्टर पैक में 30°C से कम तापमान पर नमी से बचाकर रखें।"
@@ -1200,6 +1236,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-telmikind-40",
+    imageUrl: "/medicines/med-telmikind-40.svg",
+    releaseType: "immediate",
     brandName: "Telmikind 40",
     brandNameHindi: "टेल्मिकाइंड 40",
     genericName: "Telmisartan",
@@ -1227,8 +1265,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     isPriceControlled: true,
     ceilingPrice: 6.80,
     isJanAushadhi: false,
-    barcode: "8902043003311",
-    gtin: "08902043003311",
+    barcode: "8902043003319",
+    gtin: "08902043003319",
     storageInfo: {
       en: "Store protected from moisture below 30°C.",
       hi: "30°C से कम तापमान पर रखें।"
@@ -1261,6 +1299,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-janaushadhi-telmisartan-40",
+    imageUrl: "/medicines/med-janaushadhi-telmisartan-40.svg",
+    releaseType: "immediate",
     brandName: "Jan Aushadhi Telmisartan 40",
     brandNameHindi: "जन औषधि टेल्मिसार्टन 40",
     genericName: "Telmisartan",
@@ -1289,8 +1329,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     ceilingPrice: 6.80,
     isJanAushadhi: true,
     janAushadhiCode: "PMBJP-GEN-0188",
-    barcode: "8908001001884",
-    gtin: "08908001001884",
+    barcode: "8908001001885",
+    gtin: "08908001001885",
     storageInfo: {
       en: "Store protected from moisture below 25°C.",
       hi: "25°C से कम तापमान पर नमी से बचाकर रखें।"
@@ -1327,6 +1367,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   // =========================================================================
   {
     id: "med-montair-lc",
+    imageUrl: "/medicines/med-montair-lc.svg",
+    releaseType: "immediate",
     brandName: "Montair-LC",
     brandNameHindi: "मोंटेयर-एलसी",
     genericName: "Montelukast and Levocetirizine",
@@ -1355,8 +1397,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     isNLEM: false,
     isPriceControlled: false,
     isJanAushadhi: false,
-    barcode: "8901117008123",
-    gtin: "08901117008123",
+    barcode: "8901117008120",
+    gtin: "08901117008120",
     storageInfo: {
       en: "Store protected from moisture and light below 25°C.",
       hi: "25°C से कम तापमान पर नमी और धूप से बचाकर रखें।"
@@ -1395,6 +1437,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-janaushadhi-montelukast-levocetirizine",
+    imageUrl: "/medicines/med-janaushadhi-montelukast-levocetirizine.svg",
+    releaseType: "immediate",
     brandName: "Jan Aushadhi Montelukast & Levocetirizine",
     brandNameHindi: "जन औषधि मोंटेलुकास्ट और लेवोसेटिरिज़िन",
     genericName: "Montelukast and Levocetirizine",
@@ -1461,6 +1505,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   // =========================================================================
   {
     id: "med-combiflam",
+    imageUrl: "/medicines/med-combiflam.svg",
+    releaseType: "immediate",
     brandName: "Combiflam",
     brandNameHindi: "कॉम्बीफ्लेम",
     genericName: "Ibuprofen and Paracetamol",
@@ -1488,8 +1534,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     isNLEM: false,
     isPriceControlled: false,
     isJanAushadhi: false,
-    barcode: "8901117009944",
-    gtin: "08901117009944",
+    barcode: "8901117009943",
+    gtin: "08901117009943",
     storageInfo: {
       en: "Store protected from moisture below 25°C.",
       hi: "25°C से कम तापमान पर सूखी जगह रखें।"
@@ -1527,6 +1573,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-janaushadhi-ibuprofen-paracetamol",
+    imageUrl: "/medicines/med-janaushadhi-ibuprofen-paracetamol.svg",
+    releaseType: "immediate",
     brandName: "Jan Aushadhi Ibuprofen & Paracetamol",
     brandNameHindi: "जन औषधि इबुप्रोफेन और पैरासिटामोल",
     genericName: "Ibuprofen and Paracetamol",
@@ -1555,8 +1603,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     isPriceControlled: false,
     isJanAushadhi: true,
     janAushadhiCode: "PMBJP-GEN-0105",
-    barcode: "8908001001051",
-    gtin: "08908001001051",
+    barcode: "8908001001052",
+    gtin: "08908001001052",
     storageInfo: {
       en: "Store in a cool dry place.",
       hi: "ठंडी और सूखी जगह पर रखें।"
@@ -1593,6 +1641,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   // =========================================================================
   {
     id: "med-shelcal-500",
+    imageUrl: "/medicines/med-shelcal-500.svg",
+    releaseType: "immediate",
     brandName: "Shelcal 500",
     brandNameHindi: "शेलकल 500",
     genericName: "Calcium and Vitamin D3",
@@ -1620,8 +1670,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     isNLEM: false,
     isPriceControlled: false,
     isJanAushadhi: false,
-    barcode: "8901117007788",
-    gtin: "08901117007788",
+    barcode: "8901117007789",
+    gtin: "08901117007789",
     storageInfo: {
       en: "Store in a cool dry place protected from light.",
       hi: "ठंडी और सूखी जगह पर प्रकाश से बचाकर रखें।"
@@ -1654,6 +1704,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-janaushadhi-calcium-vitd3",
+    imageUrl: "/medicines/med-janaushadhi-calcium-vitd3.svg",
+    releaseType: "immediate",
     brandName: "Jan Aushadhi Calcium 500mg & Vitamin D3",
     brandNameHindi: "जन औषधि कैल्शियम और विटामिन डी3",
     genericName: "Calcium and Vitamin D3",
@@ -1682,8 +1734,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     isPriceControlled: false,
     isJanAushadhi: true,
     janAushadhiCode: "PMBJP-GEN-0056",
-    barcode: "8908001000566",
-    gtin: "08908001000566",
+    barcode: "8908001000567",
+    gtin: "08908001000567",
     storageInfo: {
       en: "Store in a cool dry place.",
       hi: "ठंडी और सूखी जगह रखें।"
@@ -1720,6 +1772,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   // =========================================================================
   {
     id: "med-dabur-chyawanprash",
+    imageUrl: "/medicines/med-dabur-chyawanprash.svg",
+    releaseType: "immediate",
     brandName: "Dabur Chyawanprash",
     brandNameHindi: "डाबर च्यवनप्राश",
     genericName: "Ayurvedic Proprietary Rasayana",
@@ -1748,8 +1802,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
     isNLEM: false,
     isPriceControlled: false,
     isJanAushadhi: false,
-    barcode: "8901207001019",
-    gtin: "08901207001019",
+    barcode: "8901207001017",
+    gtin: "08901207001017",
     storageInfo: {
       en: "Store in a cool dry place away from direct sunlight. Do not refrigerate.",
       hi: "सीधी धूप से दूर ठंडी व सूखी जगह पर रखें। फ्रिज में न रखें।"
@@ -1790,6 +1844,8 @@ export const INDIAN_MEDICINES: Medicine[] = [
   },
   {
     id: "med-himalaya-liv-52",
+    imageUrl: "/medicines/med-himalaya-liv-52.svg",
+    releaseType: "immediate",
     brandName: "Himalaya Liv.52",
     brandNameHindi: "हिमालय लिव.52",
     genericName: "Ayurvedic Liver Formulation",

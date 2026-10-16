@@ -103,14 +103,23 @@ $$\text{Unit Price} = \frac{\text{Maximum Retail Price (MRP)}}{\text{Pack Size}}
 $$\text{Savings Percentage} = \left(\frac{\text{Reference Unit Price} - \text{Substitute Unit Price}}{\text{Reference Unit Price}}\right) \times 100$$
 All comparisons are normalized per tablet, capsule, ml, or gram rather than pack basis.
 
-### C. GS1 Application Identifier (AI) Parsing
-- **AI (01):** 14-digit GTIN validated against Luhn mod-10 check algorithm.
+### C. Realistic Pharmaceutical Packaging Visual System
+- Every cataloged Indian medicine and its verified bio-equivalent substitutes feature dedicated packaging visual assets (`/public/medicines/*.svg`).
+- Rendered using `<MedicinePackagingImage />`, incorporating:
+  - Exact manufacturer branding and color coding
+  - Metallic brushed aluminum foil blister texture with realistic 3D pill relief pockets
+  - Statutory Schedule H / H1 *Lal Lakir* (mandatory red vertical warning stripe)
+  - Clear statutory labeling: IP/BP pharmacopeia standards, batch codes, pack sizes, and MRP
+  - Interactive full-resolution modal zoom for packaging and labeling inspection
+
+### D. GS1 Application Identifier (AI) Parsing & Luhn Verification
+- **AI (01):** 14-digit GTIN validated against GS1 Luhn mod-10 check algorithm. All 28 cataloged barcodes pass 100% check-digit verification.
 - **AI (10):** Batch or lot number.
 - **AI (17):** Expiry Date encoded in `YYMMDD` format. Correctly resolves year thresholds (00-50 to 2000-2050), handles day `00` as the final day of the month, and flags expired products or products expiring within 30 days.
 
 ---
 
-## 4. Setup & Running Locally
+## 4. Setup, Testing & Running Locally
 
 ### Prerequisites
 - Node.js 18.x or 20.x
@@ -119,11 +128,14 @@ All comparisons are normalized per tablet, capsule, ml, or gram rather than pack
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/medikhoj.git
-cd medikhoj
+git clone https://github.com/Himanshusaurabh0411/medikhoj-ai.git
+cd medikhoj-ai
 
 # Install dependencies
 npm install
+
+# Run automated verification test suite
+npm test
 
 # Run the local development server
 npm run dev
@@ -134,6 +146,15 @@ npm run start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Automated Test Suite
+MediKhoj includes an automated verification test runner (`scripts/test-runner.mjs`) executing 16 clinical, algorithmic, and data integrity checks:
+- **Dataset integrity & pricing math:** Confirms `pricePerUnit = mrp / packSize` across all records.
+- **Visual packaging asset existence:** Verifies every medicine has an existing packaging SVG asset in `public/medicines/`.
+- **GS1 check-digit verification:** Validates modulo-10 Luhn check digits for all barcodes.
+- **Strict bio-equivalence matching:** Verifies identical salt, dosage form, and release type constraints.
+- **GS1 expiry parser:** Validates `YYMMDD` decoding, month-end day 00, and expiry flags.
+- **Pediatric & emergency clinical triage:** Enforces infant doctor-first constraints and red-flag emergency escalation to 112.
 
 ---
 

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { INDIAN_MEDICINES } from "@/data/indianMedicines";
 import { findSubstitutions, calculateSavings } from "@/lib/substitutionEngine";
+import { MedicinePackagingImage } from "@/components/common/MedicinePackagingImage";
 import { useLanguage } from "@/context/LanguageContext";
 import {
   AlertTriangle,
@@ -167,10 +168,11 @@ export default function GenericsPage() {
               )}
             </div>
 
-            {/* Side-by-side pricing breakdown */}
+            {/* Side-by-side Packaging Visuals & Pricing Breakdown */}
             <div className="grid grid-cols-2 gap-3 bg-chalk-50 rounded-2xl p-4 border border-chalk-200 text-xs">
               {/* Benchmark Branded Medicine */}
               <div>
+                <MedicinePackagingImage medicine={benchmark} size="sm" className="mb-2.5" />
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
                   Reference Brand ({benchmark.brandName})
                 </span>
@@ -183,13 +185,14 @@ export default function GenericsPage() {
                 <span className="text-[11px] text-slate-500 block mt-0.5">
                   Pack of {benchmark.packSize}: ₹{benchmark.mrp.toFixed(2)}
                 </span>
-                <span className="text-[10px] text-slate-500 block font-medium">
+                <span className="text-[10px] text-slate-500 block font-medium truncate">
                   {benchmark.manufacturer.name}
                 </span>
               </div>
 
               {/* Affordable Substitute Medicine */}
               <div className="border-l border-chalk-300 pl-3">
+                <MedicinePackagingImage medicine={substitute} size="sm" className="mb-2.5" />
                 <span className="text-[10px] font-bold uppercase tracking-wider text-apothecary-700 block">
                   Affordable Substitute ({substitute.brandName})
                 </span>
@@ -202,7 +205,7 @@ export default function GenericsPage() {
                 <span className="text-[11px] text-apothecary-800 block mt-0.5 font-bold">
                   Pack of {substitute.packSize}: ₹{substitute.mrp.toFixed(2)}
                 </span>
-                <span className="text-[10px] text-slate-600 block font-medium">
+                <span className="text-[10px] text-slate-600 block font-medium truncate">
                   {substitute.manufacturer.name}
                 </span>
               </div>

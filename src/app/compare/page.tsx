@@ -7,6 +7,7 @@ import { INDIAN_MEDICINES } from "@/data/indianMedicines";
 import { Medicine } from "@/types/medicine";
 import { areMedicinesStrictlyEquivalent, calculateSavings } from "@/lib/substitutionEngine";
 import { ScheduleBadge } from "@/components/common/ScheduleBadge";
+import { MedicinePackagingImage } from "@/components/common/MedicinePackagingImage";
 import { useLanguage } from "@/context/LanguageContext";
 import {
   AlertCircle,
@@ -110,25 +111,27 @@ function CompareContent() {
                 </th>
                 {selectedMedicines.map((med, idx) => (
                   <th key={med.id} className="p-4 sm:p-5 text-sm font-bold text-slate-900 relative">
-                    <div className="flex items-start justify-between gap-2">
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-teal-600 block">
-                          {idx === 0 ? "Reference Product" : `Alternative #${idx}`}
-                        </span>
-                        <Link href={`/medicines/${med.id}`} className="hover:text-teal-700 text-base font-extrabold block">
-                          {med.brandName}
-                        </Link>
-                      </div>
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-saffron-700 bg-saffron-50 px-2 py-0.5 rounded border border-saffron-200">
+                        {idx === 0 ? "Reference Product" : `Alternative #${idx}`}
+                      </span>
                       {selectedMedicines.length > 1 && (
                         <button
                           onClick={() => handleRemoveMedicine(med.id)}
-                          className="p-1 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-slate-100"
+                          className="p-1 rounded-lg text-slate-400 hover:text-surgical-600 hover:bg-slate-100 transition-colors"
                           title="Remove from comparison"
                         >
                           <X className="w-4 h-4" />
                         </button>
                       )}
                     </div>
+
+                    {/* Packaging Thumbnail */}
+                    <MedicinePackagingImage medicine={med} size="sm" className="mb-2" />
+
+                    <Link href={`/medicines/${med.id}`} className="hover:text-saffron-700 text-base font-black block transition-colors">
+                      {med.brandName}
+                    </Link>
                   </th>
                 ))}
               </tr>

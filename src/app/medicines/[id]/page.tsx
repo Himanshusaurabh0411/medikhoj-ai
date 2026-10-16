@@ -8,6 +8,7 @@ import { findSubstitutions } from "@/lib/substitutionEngine";
 import { useLanguage } from "@/context/LanguageContext";
 import { useCabinet } from "@/context/CabinetContext";
 import { ScheduleBadge } from "@/components/common/ScheduleBadge";
+import { MedicinePackagingImage } from "@/components/common/MedicinePackagingImage";
 import { InteractiveBlisterStrip } from "@/components/unique/InteractiveBlisterStrip";
 import { PriceCeilingGauge } from "@/components/unique/PriceCeilingGauge";
 import {
@@ -100,6 +101,14 @@ export default function MedicineDetailPage() {
                 {medicine.saltComposition}
               </span>
             </div>
+          </div>
+
+          {/* Authentic Packaging Visual */}
+          <div className="w-full lg:w-72 shrink-0">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-1">
+              Verified Packaging Visual
+            </span>
+            <MedicinePackagingImage medicine={medicine} size="md" />
           </div>
 
           {/* Pricing Column */}
@@ -315,38 +324,126 @@ export default function MedicineDetailPage() {
         </div>
       </div>
 
-      {/* Affordable Bio-Equivalent Substitution Highlight */}
-      {substitutions.janAushadhiHighlight && (
-        <div className="bg-gradient-to-r from-apothecary-900 to-obsidian-900 text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-elevated">
-          <div className="space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-apothecary-800 text-apothecary-200 text-xs font-bold font-mono">
-              <span>Verified Bio-Equivalent Substitute</span>
-            </div>
-            <h3 className="text-xl sm:text-2xl font-black text-white">
-              {substitutions.janAushadhiHighlight.medicine.brandName}
-            </h3>
-            <p className="text-xs text-chalk-200 max-w-xl">
-              Identical active salt: <em>{substitutions.janAushadhiHighlight.medicine.saltComposition}</em>. Save up to {substitutions.janAushadhiHighlight.savingsPercentage}% per {substitutions.janAushadhiHighlight.medicine.unitType}.
+      {/* Comprehensive Bio-Equivalent Substitutes Gallery */}
+      <section className="space-y-4 pt-4 border-t border-chalk-300">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-black text-obsidian-950 tracking-tight">
+              Verified Bio-Equivalent Substitutes & Alternative Brands
+            </h2>
+            <p className="text-xs text-obsidian-800/70 mt-0.5">
+              Identical active pharmaceutical salts, matching milligram strengths, and equivalent dosage forms across Indian manufacturers.
             </p>
           </div>
-
-          <div className="text-right shrink-0">
-            <div className="text-3xl font-black text-saffron-400">
-              ₹{substitutions.janAushadhiHighlight.medicine.pricePerUnit.toFixed(2)}
-              <span className="text-xs font-normal text-chalk-200"> / {substitutions.janAushadhiHighlight.medicine.unitType}</span>
-            </div>
-            <p className="text-xs text-chalk-200 mt-1 font-bold">
-              Save ~{substitutions.janAushadhiHighlight.savingsPercentage}% vs {medicine.brandName}
-            </p>
-            <Link
-              href={`/medicines/${substitutions.janAushadhiHighlight.medicine.id}`}
-              className="mt-3 inline-block bg-saffron-600 hover:bg-saffron-700 text-white font-bold px-4 py-2 rounded-xl text-xs transition-colors shadow-sm"
-            >
-              View Substitute Details
-            </Link>
-          </div>
+          <span className="text-xs font-mono font-bold bg-chalk-100 text-obsidian-800 px-3 py-1 rounded-lg border border-chalk-300 w-fit">
+            {substitutions.exactEquivalents.length} Verified Alternative(s) Cataloged
+          </span>
         </div>
-      )}
+
+        {substitutions.exactEquivalents.length > 0 ? (
+          <div className="grid grid-cols-1 gap-4">
+            {substitutions.exactEquivalents.map((sub) => {
+              const subMed = sub.medicine;
+              return (
+                <div
+                  key={subMed.id}
+                  className="bg-white rounded-3xl border border-chalk-300 p-5 sm:p-6 shadow-sm hover:border-saffron-400 hover:shadow-md transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-5"
+                >
+                  {/* Left: Packaging Image & Clinical Info */}
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full md:w-auto">
+                    {/* Packaging Thumbnail */}
+                    <div className="w-full sm:w-48 shrink-0">
+                      <MedicinePackagingImage medicine={subMed} size="sm" />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-[10px] font-mono font-bold bg-apothecary-100 text-apothecary-900 px-2 py-0.5 rounded border border-apothecary-200">
+                          100% Bio-Equivalent Salt Match
+                        </span>
+                        {sub.isJanAushadhi && (
+                          <span className="text-[10px] font-bold bg-apothecary-800 text-white px-2 py-0.5 rounded">
+                            Generic Formulation
+                          </span>
+                        )}
+                      </div>
+
+                      <h3 className="text-lg font-black text-obsidian-950">
+                        {subMed.brandName}
+                        {subMed.brandNameHindi && (
+                          <span className="ml-2 font-normal text-xs text-slate-500">
+                            ({subMed.brandNameHindi})
+                          </span>
+                        )}
+                      </h3>
+
+                      <p className="text-xs text-obsidian-800/80 font-mono font-medium">
+                        {subMed.saltComposition} • {subMed.dosageForm} ({subMed.strength})
+                      </p>
+
+                      <p className="text-[11px] text-slate-500 font-medium">
+                        Manufactured by <strong>{subMed.manufacturer.name}</strong> • Pack of {subMed.packSize} {subMed.packUnit}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Right: Pricing, Savings & Actions */}
+                  <div className="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center w-full md:w-auto shrink-0 gap-4 pt-3 md:pt-0 border-t md:border-t-0 border-chalk-200">
+                    <div className="text-left md:text-right">
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-2xl font-black text-obsidian-950">
+                          ₹{subMed.pricePerUnit.toFixed(2)}
+                        </span>
+                        <span className="text-xs font-semibold text-slate-500">
+                          / {subMed.unitType}
+                        </span>
+                      </div>
+                      <span className="text-[11px] text-slate-500 block">
+                        Pack MRP: ₹{subMed.mrp.toFixed(2)}
+                      </span>
+
+                      {sub.isCheaper && sub.savingsPercentage > 0 ? (
+                        <span className="inline-block mt-1 text-[11px] font-black text-apothecary-700 bg-apothecary-50 border border-apothecary-200 px-2 py-0.5 rounded-md">
+                          Save {sub.savingsPercentage}% (₹{sub.priceDifferencePerUnit.toFixed(2)} / {medicine.unitType})
+                        </span>
+                      ) : (
+                        <span className="inline-block mt-1 text-[11px] font-medium text-slate-500 bg-chalk-100 px-2 py-0.5 rounded">
+                          Price Parity
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <Link
+                        href={`/compare?ref=${medicine.id}&target=${subMed.id}`}
+                        className="px-3 py-2 rounded-xl border border-chalk-300 text-obsidian-800 text-xs font-bold hover:bg-chalk-100 transition-colors"
+                      >
+                        Compare Side-by-Side
+                      </Link>
+                      <Link
+                        href={`/medicines/${subMed.id}`}
+                        className="px-4 py-2 rounded-xl bg-obsidian-900 hover:bg-saffron-700 text-white text-xs font-bold transition-colors shadow-sm"
+                      >
+                        View Substitute
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="bg-white rounded-3xl border border-chalk-300 p-8 text-center space-y-2">
+            <Info className="w-8 h-8 text-slate-400 mx-auto" />
+            <h4 className="text-base font-bold text-obsidian-950">
+              No Direct Bio-Equivalent Substitutes Cataloged
+            </h4>
+            <p className="text-xs text-obsidian-800/70 max-w-md mx-auto leading-relaxed">
+              This specific strength and formulation currently has no cheaper bio-equivalent brand in our verified catalog. Always ask your pharmacist or doctor if equivalent alternatives are available locally.
+            </p>
+          </div>
+        )}
+      </section>
     </div>
   );
 }

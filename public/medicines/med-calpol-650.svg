@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" style="background:#090E17; border-radius:18px;">
+  <defs>
+    <!-- Metallic Brushed Aluminum Gradient -->
+    <linearGradient id="foil-metallic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2E8F0" />
+      <stop offset="20%" stop-color="#CBD5E1" />
+      <stop offset="40%" stop-color="#F1F5F9" />
+      <stop offset="60%" stop-color="#CBD5E1" />
+      <stop offset="80%" stop-color="#E2E8F0" />
+      <stop offset="100%" stop-color="#94A3B8" />
+    </linearGradient>
+
+    <!-- Realistic Pill Convex Gradient -->
+    <radialGradient id="pill-glow" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#94A3B8" />
+    </radialGradient>
+
+    <!-- Blister Pocket Cavity Shader -->
+    <radialGradient id="pocket-cavity" cx="50%" cy="50%" r="50%">
+      <stop offset="70%" stop-color="transparent" />
+      <stop offset="90%" stop-color="#64748B" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#334155" stop-opacity="0.7" />
+    </radialGradient>
+
+    <!-- Micro-embossed foil texture pattern -->
+    <pattern id="foil-grid" width="6" height="6" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="6" y2="0" stroke="#94A3B8" stroke-width="0.35" opacity="0.35" />
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#94A3B8" stroke-width="0.35" opacity="0.35" />
+    </pattern>
+
+    <filter id="strip-shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <!-- Ambient background glow -->
+  <radialGradient id="ambient" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="#1E293B" stop-opacity="0.8" />
+    <stop offset="100%" stop-color="#090E17" stop-opacity="1" />
+  </radialGradient>
+  <rect width="600" height="380" fill="url(#ambient)" />
+
+  <!-- Realistic Blister Strip Body -->
+  <g filter="url(#strip-shadow)">
+    <!-- Base Aluminum Foil -->
+    <rect x="35" y="30" width="530" height="320" rx="18" fill="url(#foil-metallic)" stroke="#64748B" stroke-width="1.5" />
+    <!-- Foil Texture Overlay -->
+    <rect x="35" y="30" width="530" height="320" rx="18" fill="url(#foil-grid)" />
+
+    <!-- Authentic Perforation Lines -->
+    <line x1="165" y1="30" x2="165" y2="350" stroke="#64748B" stroke-width="1" stroke-dasharray="3,3" opacity="0.6" />
+    <line x1="295" y1="30" x2="295" y2="350" stroke="#64748B" stroke-width="1" stroke-dasharray="3,3" opacity="0.6" />
+    <line x1="425" y1="30" x2="425" y2="350" stroke="#64748B" stroke-width="1" stroke-dasharray="3,3" opacity="0.6" />
+
+    <!-- STATUTORY SCHEDULE H / H1 LAL LAKIR (RED LINE) -->
+    
+
+    <!-- GENERIC BIO-EQUIVALENT SUBSTITUTE QUALITY BANNER -->
+    
+
+    <!-- BLISTER POCKETS WITH EMBOSSED PILLS (Top & Bottom Rows) -->
+    <!-- Pocket 1 -->
+    <g transform="translate(100, 100)">
+      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
+      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
+      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
+    </g>
+
+    <!-- Pocket 2 -->
+    <g transform="translate(230, 100)">
+      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
+      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
+      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
+    </g>
+
+    <!-- Pocket 3 -->
+    <g transform="translate(360, 100)">
+      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
+      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
+      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
+    </g>
+
+    <!-- Pocket 4 -->
+    <g transform="translate(490, 100)">
+      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
+      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
+      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
+    </g>
+
+    <!-- Bottom Row Pockets -->
+    <!-- Pocket 5 -->
+    <g transform="translate(100, 270)">
+      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
+      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
+      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
+    </g>
+
+    <!-- Pocket 6 -->
+    <g transform="translate(230, 270)">
+      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
+      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
+      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
+    </g>
+
+    <!-- Pocket 7 -->
+    <g transform="translate(360, 270)">
+      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
+      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
+      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
+    </g>
+
+    <!-- Pocket 8 -->
+    <g transform="translate(490, 270)">
+      <ellipse cx="0" cy="0" rx="34" ry="24" fill="url(#pocket-cavity)" />
+      <ellipse cx="0" cy="0" rx="30" ry="20" fill="url(#pill-glow)" stroke="#94A3B8" stroke-width="0.8" />
+      <line x1="0" y1="-18" x2="0" y2="18" stroke="#CBD5E1" stroke-width="1.5" />
+    </g>
+
+    <!-- PRINTED PHARMACEUTICAL FOIL LABEL -->
+    <!-- Main Brand Block -->
+    <rect x="50" y="45" width="500" height="28" rx="6" fill="#090E17" opacity="0.08" />
+    <text x="60" y="65" font-family="system-ui, sans-serif" font-size="20" font-weight="900" fill="#1B4965" letter-spacing="0.5">
+      CALPOL 650
+    </text>
+    <text x="320" y="65" font-family="'Noto Sans Devanagari', system-ui" font-size="14" font-weight="700" fill="#334155">
+      कैलपोल ६५०
+    </text>
+
+    <!-- Salt Composition (Pharmacopeial Formulation) -->
+    <text x="60" y="142" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#1E293B">
+      Paracetamol Tablets I.P. 650 mg
+    </text>
+    <text x="60" y="158" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">
+      Therapeutic Focus: Fast Pain Relief • Pack of 15 Tablets
+    </text>
+
+    <!-- Batch, Manufacturing, Expiry & Pricing Stamp -->
+    <rect x="50" y="306" width="500" height="34" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
+    <text x="60" y="322" font-family="monospace" font-size="9" font-weight="700" fill="#0F172A">
+      B.No: CP24K88 | MFG: 02/2024 | EXP: 11/2026
+    </text>
+    <text x="60" y="334" font-family="monospace" font-size="8.5" font-weight="800" fill="#C8162A">
+      M.R.P. ₹32.50 (INCL. OF ALL TAXES) • GTIN: 08901043004562
+    </text>
+
+    <!-- Manufacturer Insignia -->
+    <text x="540" y="328" text-anchor="end" font-family="system-ui, sans-serif" font-size="9" font-weight="800" fill="#334155">
+      GlaxoSmithKline Pharmaceuticals Ltd (GSK)
+    </text>
+  </g>
+</svg>

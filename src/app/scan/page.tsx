@@ -71,19 +71,19 @@ export default function ScanPage() {
   const sampleBarcodes = [
     {
       label: "Dolo 650 Strip (GS1 DataMatrix 2D - Valid Expiry 12/2026)",
-      payload: "(01)08901117001234(17)261231(10)DL24B01",
+      payload: "(01)08901117001237(17)261231(10)DL24B01",
     },
     {
       label: "Augmentin 625 Duo Box (EAN-13 1D Barcode)",
-      payload: "8901043007812",
+      payload: "8901043007815",
     },
     {
       label: "Generic Paracetamol 650 (Official GTIN)",
-      payload: "08908001001211",
+      payload: "08908001001212",
     },
     {
       label: "Expired Antibiotic Strip Test (Expired 05/2022)",
-      payload: "(01)08901117001234(17)220531(10)EX22B99",
+      payload: "(01)08901117001237(17)220531(10)EX22B99",
     },
   ];
 
@@ -369,14 +369,14 @@ export default function ScanPage() {
           const fileNameLower = file.name.toLowerCase();
           let extracted = "";
           if (fileNameLower.includes("augmentin") || fileNameLower.includes("clavam")) {
-            extracted = "AUGMENTIN 625 DUO\nAmoxycillin and Potassium Clavulanate Tablets I.P.\nBatch: GSK24A09\nMFG: 02/2024\nEXP: 08/2026\nMRP Rs. 223.50 (10 Tablets)\nGlaxoSmithKline Pharmaceuticals Ltd.\nBarcode: 8901043007812";
-            if (!barcodeDetected) handleProcessCode("8901043007812");
+            extracted = "AUGMENTIN 625 DUO\nAmoxycillin and Potassium Clavulanate Tablets I.P.\nBatch: GSK24A09\nMFG: 02/2024\nEXP: 08/2026\nMRP Rs. 223.50 (10 Tablets)\nGlaxoSmithKline Pharmaceuticals Ltd.\nBarcode: 8901043007815";
+            if (!barcodeDetected) handleProcessCode("8901043007815");
           } else if (fileNameLower.includes("generic") || fileNameLower.includes("substitute")) {
-            extracted = "PARACETAMOL TABLETS I.P. 650mg\nBatch: GEN24C\nMFG: 03/2024\nEXP: 10/2026\nMRP Rs. 10.00 (10 Tabs)\nGTIN: 08908001001211";
-            if (!barcodeDetected) handleProcessCode("08908001001211");
+            extracted = "PARACETAMOL TABLETS I.P. 650mg\nBatch: GEN24C\nMFG: 03/2024\nEXP: 10/2026\nMRP Rs. 10.00 (10 Tabs)\nGTIN: 08908001001212";
+            if (!barcodeDetected) handleProcessCode("08908001001212");
           } else {
-            extracted = "DOLO-650 Paracetamol Tablets I.P.\nEach uncoated tablet contains: Paracetamol IP 650mg\nBatch: DL24B01\nMFG: 01/2024\nEXP: 12/2026\nMRP Rs. 33.68 / 15 Tabs\nMicro Labs Limited\nGS1 DataMatrix: (01)08901117001234(17)261231(10)DL24B01";
-            if (!barcodeDetected) handleProcessCode("(01)08901117001234(17)261231(10)DL24B01");
+            extracted = "DOLO-650 Paracetamol Tablets I.P.\nEach uncoated tablet contains: Paracetamol IP 650mg\nBatch: DL24B01\nMFG: 01/2024\nEXP: 12/2026\nMRP Rs. 33.68 / 15 Tabs\nMicro Labs Limited\nGS1 DataMatrix: (01)08901117001237(17)261231(10)DL24B01";
+            if (!barcodeDetected) handleProcessCode("(01)08901117001237(17)261231(10)DL24B01");
           }
           setOcrText(extracted);
           setIsProcessingOcr(false);
@@ -687,7 +687,7 @@ export default function ScanPage() {
               type="text"
               value={barcodeInput}
               onChange={(e) => setBarcodeInput(e.target.value)}
-              placeholder="e.g. (01)08901117001234(17)261231(10)DL24B01 or 8901043007812"
+              placeholder="e.g. (01)08901117001237(17)261231(10)DL24B01 or 8901043007815"
               className="flex-1 px-4 py-3 bg-chalk-50 border border-chalk-300 rounded-xl text-xs sm:text-sm font-mono text-obsidian-900 focus:outline-none focus:border-saffron-600"
             />
             <button

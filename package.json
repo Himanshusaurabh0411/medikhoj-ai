@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "node scripts/test-runner.mjs"
+  },
+  "imports": {
+    "@/*": "./src/*"
   },
   "dependencies": {
     "clsx": "^2.1.1",

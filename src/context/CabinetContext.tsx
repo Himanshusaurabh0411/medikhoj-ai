@@ -34,34 +34,48 @@ export function CabinetProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
+  const MAX_CABINET_ITEMS = 50;
+
   const saveToStorage = (items: CabinetItem[]) => {
-    setSavedItems(items);
+    // Cap at MAX_CABINET_ITEMS to preserve device storage quotas
+    const capped = items.slice(0, MAX_CABINET_ITEMS);
+    setSavedItems(capped);
     try {
-      localStorage.setItem("medikhoj_cabinet", JSON.stringify(items));
+      localStorage.setItem("medikhoj_cabinet", JSON.stringify(capped));
     } catch (e) {
       console.error("Failed to persist cabinet", e);
     }
   };
 
   const addToCabinet = (medicine: Medicine, userExpiryDate?: string, notes?: string) => {
+    // Sanitize user inputs
+    const sanitizedNotes = notes ? notes.slice(0, 500).replace(/[<>]/g, "") : undefined;
+    const sanitizedExpiry = userExpiryDate && /^\d{4}-\d{2}-\d{2}$/.test(userExpiryDate)
+      ? userExpiryDate
+      : undefined;
+
     const existingIndex = savedItems.findIndex(i => i.medicine.id === medicine.id);
     if (existingIndex > -1) {
       // update
       const updated = [...savedItems];
       updated[existingIndex] = {
         ...updated[existingIndex],
-        userExpiryDate,
-        notes,
+        userExpiryDate: sanitizedExpiry,
+        notes: sanitizedNotes,
       };
       saveToStorage(updated);
     } else {
+      if (savedItems.length >= MAX_CABINET_ITEMS) {
+        console.warn("Cabinet limit reached (50 medicines). Cannot add more items.");
+        return;
+      }
       saveToStorage([
         ...savedItems,
         {
           medicine,
           savedAt: new Date().toISOString(),
-          userExpiryDate,
-          notes,
+          userExpiryDate: sanitizedExpiry,
+          notes: sanitizedNotes,
         }
       ]);
     }
